@@ -44,13 +44,7 @@ class AdminController extends Controller
 
 //==================================================================================
 
-//     public function viweProducty()
-// {
-//     //show Product page
-//     $prod=Product::all();
-//     $sec=Section::all();
-//     return view('admin.Product',compact('prod','sec'));
-// }
+
 
 public function viweProd()
 {
