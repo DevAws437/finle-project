@@ -1,0 +1,567 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+/* Page Login */
+#body_login{
+    background-color: rgb(15, 125, 215);
+}
+#page_login{
+    width: 500px;
+    height: 600px;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    top: 60px;
+    left: 530px;
+
+}
+#title_login{
+    font-size: 50px;
+    margin-left: 191px;
+    margin-top: 25px;
+}
+#email_login{
+    width: 352px;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    margin-left: 50px;
+    margin-top: 35px;
+    padding-left: 30px;
+}
+#password_login{
+    width: 352px;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    margin-left: 50px;
+    margin-top: 35px;
+    padding-left: 30px;
+}
+#link_login{
+    margin-left: 195px;
+    margin-top: 21px;
+}
+#submit_login{
+    width: 352px;
+    height: 38px;
+    margin-top: 18px;
+    margin-left: 77px;
+    border: none;
+    border-radius: 15px;
+    background-color:rgb(52, 52, 255) ;
+    color: white;
+}
+#link_signup_login{
+    margin-top: 20px;
+    margin-left: 153px;
+}
+#write_or{
+    margin-top: 20px;
+    margin-left: 234px;
+    font-size: 23px;
+}
+#img_icon_login{
+    color: black;
+    position: relative;
+    left: 77px;
+    top: 6px;
+    width: 24px;
+    height: 20px;
+}
+#visit_facebook{
+    width: 352px;
+    height: 38px;
+    background-color: rgb(183 212 235);
+    border-radius: 15px;
+    margin-top: 18px;
+    margin-left: 77px;
+}
+#img_icon_facebook{
+    position: relative;
+    left: 14px;
+    top: 2px;
+    width: 42px;
+    height: 34px;
+
+}
+#write_visit_facebook{
+    position: absolute;
+    top: 442px;
+    left: 185px;
+    color: rgb(73, 72, 79);
+    font-size: 18px;
+    text-decoration: none;
+}
+#visit_google{
+    width: 352px;
+    height: 38px;
+    background-color: rgb(183 212 235);
+    border-radius: 15px;
+    margin-top: 18px;
+    margin-left: 77px;
+}
+#img_icon_google{
+    position: relative;
+    left: 15px;
+    top: 3px;
+    width: 38px;
+    height: 31px;
+}
+#write_visit_google{
+    position: absolute;
+    top: 500px;
+    left: 185px;
+    color: rgb(73, 72, 79);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+
+/* page signup */
+
+#body_signup{
+    background-color: rgb(15, 125, 215);
+}
+#page_signup{
+    width: 500px;
+    height: 672px;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    top: 28px;
+    left: 530px;
+
+}
+#title_signup{
+    font-size: 50px;
+    margin-left: 177px;
+    margin-top: 15px;
+}
+#full_name{
+    width: 344px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    margin-left: 80px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+#phone{
+    width: 344px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    margin-left: 80px;
+    margin-top: 35px;
+    padding-left: 10px;
+}
+#adress{
+    width: 344px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    margin-left: 80px;
+    margin-top: 35px;
+    padding-left: 10px;
+}
+#email_signup{
+    width: 344px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    margin-left: 80px;
+    margin-top: 35px;
+    padding-left: 10px;
+}
+#create_password{
+    width: 344px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    margin-left: 80px;
+    margin-top: 35px;
+    padding-left: 10px;
+}
+#confirm_password{
+    width: 344px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    margin-left: 80px;
+    margin-top: 35px;
+    padding-left: 10px;
+}
+#submit_signup{
+    width: 352px;
+    height: 38px;
+    margin-top: 18px;
+    margin-left: 77px;
+    border: none;
+    border-radius: 15px;
+    background-color:rgb(52, 52, 255) ;
+    color: white;
+}
+#link_signup_login{
+    margin-left: 142px;
+    margin-top: 21px;
+}
+#img_icon_facebook_signup{
+    position: relative;
+    left: 184px;
+    top: 2px;
+    width: 50px;
+    height: 50px;
+}
+#img_icon_google_signup{
+    position: relative;
+    left: 209px;
+    top: -2px;
+    width: 38px;
+    height: 40px;
+}
+
+/* Page Dashboard */
+
+.part{
+    width: 100%;
+    position:absolute;
+}
+.left{
+
+    position:fixed;
+    width: 19%;
+    height: 713px;
+    background-color: #4e73df;
+    right: 81%;
+    top: 0;
+    /* border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px; */
+}
+.right{
+
+    position:relative;
+    width: 81%;
+    height: 713px;
+    background-color: white;
+    left: 19%;
+    top: 0;
+}
+#div_search{
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-bottom: 2px solid #b6c9ff;
+    position: relative;
+}
+#image_search{
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 17px;
+    left: 813px;
+}
+#input_search{
+    width: 450px;
+    height: 30px;
+    margin-left: 400px;
+    margin-top: 13px;
+    border-radius: 30px;
+    padding-left: 20px;
+}
+#total_dashboard{
+    position: absolute;
+    left: 26px;
+    top: 10px;
+    color: black;
+}
+#All_statistics{
+    width: 1229px;
+    height: 200px;
+    position: absolute;
+    top: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#The_first_statistic{
+    width: 275px;
+    height: 150px;
+    background-color: #bbd4ff;
+    box-shadow: 0px 2px 7px #838383d9;
+}
+#The_second_statistic{
+    width: 275px;
+    height: 150px;
+    background-color: #bbd4ff;
+    box-shadow: 0px 2px 7px #838383d9;
+}
+#The_third_statistic{
+    width: 275px;
+    height: 150px;
+    background-color: #bbd4ff;
+    box-shadow: 0px 2px 7px #838383d9;
+}
+#The_fourth_statistic{
+    width: 275px;
+    height: 150px;
+    background-color: #bbd4ff;
+    box-shadow: 0px 2px 7px #838383d9;
+}
+.icon_dashboard{
+    position: relative;
+    top: 50px;
+    left: 215px;
+}
+#icon_product_div{
+    width: 50px;
+    height: 50px;
+}
+.title_dive_dashboard{
+    position: relative;
+    top: 30px;
+    left: 20px;
+    font-size: 10px;
+}
+.statistise_dashboard{
+    position: relative;
+    top: -10px;
+    left: 20px;
+    font-size: 22px;
+}
+#title_table{
+    position: absolute;
+    left: 109px;
+    top: 269px;
+    font-size: 25px;
+}
+
+#user_tuble{
+    position: relative;
+    top: 250px;
+    left: 110px;
+    border-collapse: collapse;
+    width: 100px;
+    box-shadow: 0px 0px 10px #838383d9;
+}
+.column_id{
+    padding-left: 60px;
+}
+.column_type{
+    padding-right: 50px;
+    padding-left: 100px;
+}
+th,td{
+    padding-left: 130px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: #cee0ff;
+}
+#logo_websit_dashboard{
+    position: absolute;
+    top: 8px;
+    left: 60px;
+    color: white;
+}
+#menu_all{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 30px;
+    color: white;
+}
+#menu_add_edite{
+    position: relative;
+    top: 11px;
+    left: 0px;
+    width: 185px;
+    border-radius: 15px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: none;
+    list-style: none;
+    background-color: #d0d0d0;
+}
+#menu_all li:hover #menu_add_edite{
+    display: block;
+}
+.style_add_edite_delete{
+    text-decoration: none;
+    color: black;
+}
+ #image_dashboard{
+    position: relative;
+    width: 22px;
+    height: 22px;
+    top: 6px;
+    left: 8px;
+}
+#write_Dashboard{
+    color: #d23b4a;
+    position: relative;
+    top: 2px;
+    left: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+#image_Product{
+    position: relative;
+    width: 22px;
+    height: 22px;
+    top: 6px;
+    left: 8px;
+}
+#write_Product{
+    color: #d23b4a;
+    position: relative;
+    top: 2px;
+    left: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+#image_Section{
+    width: 22px;
+    height: 22px;
+    position: relative;
+    top: 6px;
+    left: 8px;
+}
+#write_Section{
+    color: #d23b4a;
+    position: relative;
+    top: 2px;
+    left: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+#image_User{
+    width: 22px;
+    height: 22px;
+    position: relative;
+    top: 6px;
+    left: 8px;
+}
+#write_User{
+    color: #d23b4a;
+    position: relative;
+    top: 2px;
+    left: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+#image_Statistics{
+    width: 22px;
+    height: 22px;
+    position: relative;
+    top: 6px;
+    left: 8px;
+}
+#write_Statistics{
+    color: #d23b4a;
+    position: relative;
+    top: 2px;
+    left: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+#image_Invoice{
+    width: 22px;
+    height: 22px;
+    position: relative;
+    top: 6px;
+    left: 8px;
+}
+#write_Invoice{
+    color: #d23b4a;
+    position: relative;
+    top: 2px;
+    left: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+#image_logout{
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 657px;
+    left: 21px;
+}
+#write_logout{
+    color: #d23b4a;
+    position: absolute;
+    top: 657px;
+    left: 60px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+/* page product */
+
+#title_table_product{
+    position: absolute;
+    left: 109px;
+    top: 91px;
+    font-size: 25px;
+}
+#product_tuble{
+    position: relative;
+    top: 77px;
+    left: 110px;
+    border-collapse: collapse;
+    width: 100px;
+    box-shadow: 0px 0px 10px #838383d9;
+}
+.column_id_product{
+    padding-left: 60px;
+}
+.column_size_product{
+    padding-right: 50px;
+    padding-left: 100px;
+}
+.th_product,.td_product{
+    padding-left: 70px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: #cee0ff;
+}
+
+/* page add product  */
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#groub_input_product{
+    background-color: hsl(225, 76%, 74%);
+    width: 1244px;
+    height: 207px;
+    position: relative;
+    top: 19px;
+
+}
+#product_add_description{
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 50px;
+    min-height: 50px;
+    position: relative;
+    top: 50px;
+}
