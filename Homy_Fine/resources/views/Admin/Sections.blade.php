@@ -18,14 +18,8 @@
   <body>
  <form action="{{url('addSection')}}" method="get">
     <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Sections_Name</label>
-        <input type="text" class="form-control" id="inputcat" placeholder="Product_Name"  name="Product_Name">
-      </div>
-
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Sections_Imge</label>
-        <input type="text" class="form-control" id="inputcat" placeholder="Product_Imge"  name="Product_Imge">
+        <label for="exampleFormControlInput1" class="form-label">Section_Name</label>
+        <input type="text" class="form-control" id="inputcat" placeholder="Section_Name"  name="Section_Name" >
       </div>
 
 

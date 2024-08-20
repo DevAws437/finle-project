@@ -33,16 +33,37 @@ Route::middleware([
 
 Route::get('/redirect',[HomeController::class,'redirect']);
 
-//======(Product)========
-Route::get('/Product',[AdminController::class,'viweProd']);
+//======(DashboardAdmin)========
+Route::get('/DashboardAdmin',[AdminController::class,'viwe_User']);
 
-Route::get('/addproduct',[AdminController::class,"addproduct"]);
-//==============
+
+//======(Product)========
+Route::get('/Product',[AdminController::class,'viwe_Prod']);
+
+Route::get('/add_product',[AdminController::class,"add_product"]);
+
+//delet_Product
+Route::get('/delet_product/{id}',[AdminController::class,"delet_product"]);
+
+//updata_Product
+Route::get('/updata_product/{id}',[AdminController::class,"updata_product"]);
+
+Route::get('/Update_confirm_product/{id}',[AdminController::class,"Update_confirm_product"]);
+
 
 //======(Section)========
-Route::get('/viweSections',[AdminController::class,'viweSections']);
+Route::get('/viwe_Sections',[AdminController::class,'viwe_Sections']);
 
-Route::get('/addSection',[AdminController::class,'addSection']);
+Route::get('/add_Section',[AdminController::class,'add_Section']);
+
+//delet_Section
+Route::get('/delet_section/{id}',[AdminController::class,"deletcatagory"]);
+
+//Updata_Section
+Route::get('/updata_section/{id}',[AdminController::class,"updata_section"]);
+
+Route::get('/Update_confirm_Section/{id}',[AdminController::class,"Update_confirm_Section"]);
+
 
 //======(signup&login)========
 
@@ -62,12 +83,11 @@ Route::get('/login', function () {
 //======(Call function signupuser)========
 Route::get('/signupuser',[AdminController::class,'signupuser']);
 
-//======(Call Product page in Dashboard)========
-Route::get('/Product', function () {
-    return view('Admin.Product');
-})->name('Product');
+//======(Cart)========
 
-Route::get('/DashboardAdmin',[AdminController::class,'viweUser']);
+
+
+
 
 
 

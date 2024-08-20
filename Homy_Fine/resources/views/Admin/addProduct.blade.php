@@ -13,10 +13,15 @@
         #inputcat{
             width: 200px;
         }
+
+
     </style>
+
 </head>
   <body>
- <form action="{{url('addproduct')}}" method="get">
+
+ <form action="{{url('addproduct')}}" method="get" >
+
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Product_Name</label>
         <input type="text" class="form-control" id="inputcat" placeholder="Product_Name"  name="Product_Name">

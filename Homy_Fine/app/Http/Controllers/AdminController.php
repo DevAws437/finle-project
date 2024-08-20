@@ -9,6 +9,7 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
+//======(signup&login)========
 
     public function signupuser(Request $req)
 {
@@ -21,32 +22,80 @@ class AdminController extends Controller
     return redirect()->back()->with("message", "user added successfully");
 
 }
-    public function viweSections()
+
+    public function signup()
+{
+    //show signup page
+    return view('admin.signup');
+}
+
+    public function login()
+{
+    //show login page
+    return view('admin.login');
+}
+
+
+//======(Dashboard)========
+public function DashboardAdmin()
+{
+    //show Product page
+    return view('admin.DashboardAdmin');
+}
+
+//======(User)========
+    public function viwe_User()
+{
+    //show user tabel in dashboard admin page
+    $user=User::all();
+    return view('admin.DashboardAdmin',compact('user'));
+}
+
+//======(Sections Function)========
+    public function viwe_Sections()
     {
         //show sections page
         return view('admin.Sections');
     }
 
-    public function addSection(Request $req)
+    public function add_Section(Request $req)
     {
         //add a new section to the sql table
         $section=new section ;
         $section->Section_Name=$req->Section_Name;
-        $section->Section_Imge=$req->Section_Imge;
         $section->Description=$req->Description;
         $section->save();
         return redirect()->back()->with("message", "section added successfully");
 
     }
 
+    public function delet_section($id)
+    {
+        $deletsection=Section::find($id);
+        $deletsection->delete();
+        return redirect()->back()->with("message1", "Section removed successfully");
+    }
 
+    public function updata_section($id)
+    {
+        $sec=Section::find($id);
+        return view('admin.updatesection',compact('sec'));
+    }
 
-
+    public function Update_confirm_Section($id,Request $req)
+{
+    $sec=Section::find($id);
+    $sec->Cat_Name=$req->Category_Name;
+    $sec->Description=$req->Description;
+    $sec->save();
+    return redirect()->back()->with("message1", "Section updata successfully");
+}
 //==================================================================================
 
 
+//======(Product)========
 
-public function viweProd()
+public function viwe_Prod()
 {
     //show Product page
     $prod=Product::all();
@@ -55,44 +104,62 @@ public function viweProd()
 }
 
 
-public function viweUser()
-{
-    //show user tabel in dashboard admin page
-    $user=User::all();
-    return view('admin.DashboardAdmin',compact('user'));
-}
-public function signup()
-{
-    //show signup page
-    return view('admin.signup');
-}
 
-public function login()
-{
-    //show login page
-    return view('admin.login');
-}
-public function addproduct(Request $req)
+public function add_product(Request $req)
 {
     //add new product to the sql tabel
     $product=new Product ;
     $product->Product_Name=$req->Product_Name;
     $product->Product_Price=$req->Product_Price;
-    $product->Product_Imge=$req->Product_Imge;
     $product->Description=$req->Description;
     $product->Color=$req->Color;
     $product->Size=$req->Size;
+    $image=$req->Product_Imge;
+    if ($image){
+        $image=$req->file('Product_Imge');
+        $imageName = time().'.'.$req->file('Product_Imge')->getClientOriginalExtension();
+        $req->Product_Imge->move('images', $imageName);
+        $product->Product_Imge='images/'. $imageName;
     $product->save();
     return redirect()->back()->with("message", "product added successfully");
 
 }
+}
+
+public function delet_product($id)
+{
+    $delet_product=product::find($id);
+    $delet_product->delete();
+    return redirect()->back()->with("message1", "Product removed successfully");
+}
+
+public function updata_product($id)
+{
+    $product=product::find($id);
+    return view('admin.updateproduct',compact('product'));
+}
+
+public function Update_confirm_product($id,Request $req)
+{
+    $product=product::find($id);
+    $product->Product_Name=$req->Product_Name;
+    $product->Product_Price=$req->Product_Price;
+    $product->Product_Imge=$req->Product_Imge;
+    $product->Section_ID=$req->Section_ID;
+    $product->Description=$req->Description;
+    $product->Color=$req->Color;
+    $product->Size=$req->Size;
+    $product->save();
+    return redirect()->back()->with("message1", "Product updata successfully");
+}
 
 //==================================================================================
 
-public function DashboardAdmin()
-{
-    //show Product page
-    return view('admin.DashboardAdmin');
-}
+
+
+
 
 }
+
+
+

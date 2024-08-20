@@ -102,7 +102,7 @@
                      <td class="column_type">{{$u->usertype}}</td>
                   </tr>
                   @endforeach
-              </table> 
+              </table>
 
         </div>
 

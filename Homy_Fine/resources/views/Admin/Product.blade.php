@@ -59,6 +59,7 @@
                 <input type="text" name="input_search" id="input_search" placeholder="Search">
             </div>
 
+
             <h3 id="title_table_product">Product Table</h3>
 
                <table  id="product_tuble" >
@@ -72,6 +73,7 @@
                      <th class="th_product">Color</th>
                      <th class="column_size_product">Description</th>
                   </tr>
+
                   @foreach ($prod as $p)
                   <tr>
                      <td class="column_id_product">{{$p->id}}</td>
