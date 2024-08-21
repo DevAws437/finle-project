@@ -18,7 +18,7 @@
             </li><br>
             <li>
                <img src="../assets/icon/icons8-product-50.png" id="image_Product" name="image_Product" >
-               <a href="" id="write_Product">Product</a><br>
+               <a href="{{url('viwe_Prod')}}" id="write_Product">Product</a><br>
                <ul id="menu_add_edite">
                   <li><a href="" class="style_add_edite_delete">Add</a></li><br>
                   <li><a href="" class="style_add_edite_delete">Edite & Delete</a></li>

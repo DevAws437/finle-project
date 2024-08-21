@@ -155,8 +155,12 @@ public function Update_confirm_product($id,Request $req)
 
 //==================================================================================
 
-
-
+//======(shopping_carts)========
+public function viwe_shopping_cart()
+{
+    $sec= Section::all();
+    return view('admin.section',compact('sec'));
+}
 
 
 }

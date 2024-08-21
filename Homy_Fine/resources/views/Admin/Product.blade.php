@@ -14,7 +14,7 @@
          <ul id="menu_all">
             <li>
                <img src="../assets/icon/icons8-dashboard-50.png" id="image_dashboard" name="image_dashboard" >
-               <a href="" id="write_Dashboard">Dashboard</a><br>
+               <a href="{{url('viwe_User')}}" id="write_Dashboard">Dashboard</a><br>
             </li><br>
             <li>
                <img src="../assets/icon/icons8-product-50.png" id="image_Product" name="image_Product" >
