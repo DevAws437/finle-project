@@ -21,36 +21,36 @@
                <a href="{{url('viwe_Prod')}}" id="write_Product">Product</a><br>
                <ul id="menu_add_edite">
                   <li><a href="{{url('add_Prodcut_view')}}" class="style_add_edite_delete">Add</a></li><br>
-                  <li><a href="" class="style_add_edite_delete">Edite & Delete</a></li>
+                  <li><a href="{{url('')}}" class="style_add_edite_delete">Edite & Delete</a></li>
                </ul>
             </li><br>
             <li>
                <img src="../assets/icon/icons8-menu-50.png" id="image_Section" name="image_Section" >
                <a href="" id="write_Section">Section</a><br>
                <ul id="menu_add_edite" >
-                  <li><a href="" class="style_add_edite_delete">Add</a></li><br>
-                  <li><a href="" class="style_add_edite_delete">Edite & Delete</a></li>
+                  <li><a href="{{url('')}}" class="style_add_edite_delete">Add</a></li><br>
+                  <li><a href="{{url('')}}" class="style_add_edite_delete">Edite & Delete</a></li>
                </ul>
             </li><br>
             <li>
                <img src="../assets/icon/icons8-user-50.png" id="image_User" name="image_User" >
                <a href="" id="write_User">User</a><br>
                <ul id="menu_add_edite">
-                  <li><a href="" class="style_add_edite_delete">Add</a></li><br>
-                  <li><a href="" class="style_add_edite_delete">Edite & Delete</a></li>
+                  <li><a href="{{url('')}}" class="style_add_edite_delete">Add</a></li><br>
+                  <li><a href="{{url('')}}" class="style_add_edite_delete">Edite & Delete</a></li>
                </ul>
             </li><br>
             <li>
                <img src="../assets/icon/icons8-statistics-50.png" id="image_Statistics" name="image_Statistics" >
-               <a href="" id="write_Statistics">Statistics</a><br>
+               <a href="{{url('')}}" id="write_Statistics">Statistics</a><br>
             </li><br>
             <li>
                <img src="../assets/icon/icons8-invoice-50.png" id="image_Invoice" name="image_Invoice" >
-               <a href="" id="write_Invoice">Invoice</a><br>
+               <a href="{{url('')}}" id="write_Invoice">Invoice</a><br>
             </li>
          </ul>
          <img src="../assets/icon/icons8-log-out-64.png" id="image_logout" name="image_Exit" >
-         <a href="" id="write_logout">Log out</a><br>
+         <a href="{{url('')}}" id="write_logout">Log out</a><br>
      </div>
         <div class="part right">
             <div id="div_search">
