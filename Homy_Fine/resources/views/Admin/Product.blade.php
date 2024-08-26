@@ -20,7 +20,7 @@
                <img src="../assets/icon/icons8-product-50.png" id="image_Product" name="image_Product" >
                <a href="" id="write_Product">Product</a><br>
                <ul id="menu_add_edite">
-                  <li><a href="" class="style_add_edite_delete">Add</a></li><br>
+                  <li><a href="{{url('add_Prodcut_view')}}" class="style_add_edite_delete">Add</a></li><br>
                   <li><a href="" class="style_add_edite_delete">Edite & Delete</a></li>
                </ul>
             </li><br>
