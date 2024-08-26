@@ -144,19 +144,20 @@ public function add_product(Request $req)
     $sec = new Section;
     $product->Product_Name=$req->Product_Name;
     $product->Product_Price=$req->Product_Price;
-    $product->section_id=$req->Section_ID;
+    $product->Section_ID=$req->Section_ID;
     $product->Description=$req->Description;
     $product->Color=$req->Color;
     $product->Size=$req->Size;
-    $image=$req->Product_Imge;
+    $image=$req->imge;
     if ($image){
-        $image=$req->file('Product_Imge');
-        $imageName = time().'.'.$req->file('Product_Imge')->getClientOriginalExtension();
-        $req->Product_Imge->move('images', $imageName);
+        $image=$req->file('imge');
+        $imageName = time().'.'.$req->file('imge')->getClientOriginalExtension();
+        $req->imge->move('images', $imageName);
         $product->Product_Imge='images/'. $imageName;
-        $product->save();
-        return redirect()->back();
+
     }
+    $product->save();
+    return redirect()->back()->with("message","product added successfully");
 
 }
 

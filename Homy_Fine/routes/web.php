@@ -97,6 +97,9 @@ Route::post('/View_Shopping_cart/{id}',[HomeController::class,"View_Shopping_car
 Route::get('/Show_sh_cart',[HomeController::class,"Show_sh_cart"]);
 
 
-Route::get('/handpag',[HomeController::class,"handpag"]);
+// Route::get('/handpag',[AdminController::class,"handpag"]);
 
 
+Route::get('/handbag', function () {
+    return view('Admin.handbag');
+})->name('handbag');

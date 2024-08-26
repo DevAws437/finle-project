@@ -65,18 +65,18 @@
                <div  id="part_all">
                   <div class="part_input">
                   <label for="">Product Name</label><br>
-                  <input type="text" name="product_add_name" id="product_add_name"  placeholder="Product Name"><br>
+                  <input type="text" name="Product_Name" id="product_add_name"  placeholder="Product Name"><br>
                   <label id="label_product_price">Product Price</label><br>
-                  <input type="text" name="product_add_price" id="product_add_price" placeholder="Product Price"><br>
+                  <input type="text" name="Product_Price" id="product_add_price" placeholder="Product Price"><br>
                   <label id="label_description">Description</label><br>
-                  <textarea name="product_add_description" claas="grid_input" id="product_add_description" placeholder="Description"></textarea>
+                  <textarea name="Description" claas="grid_input" id="product_add_description" placeholder="Description"></textarea>
                   </div>
                   <div class="part_input">
                   <label for="">Product Image</label><br>
-                  <input type="file" name="product_add_image"  id="product_add_image" placeholder="Product Image"><br>
+                  <input type="file" name="imge"  id="product_add_image" placeholder="Product Image"><br>
                   <label id="lable_section">Section</label><br>
 
-                  <select name="section_id"  id="section_product_add_id" placeholder="Section">
+                  <select name="Section_ID "  id="section_product_add_id" placeholder="Section">
                     @foreach ($sec as $s)
                      <option value="{{$s->id}}">{{$s->Section_Name}}</option>
                      @endforeach
@@ -85,9 +85,9 @@
                   </div>
                   <div class="part_input">
                   <label for="">Color</label><br>
-                  <input type="text" name="product_add_color" claas="input3" id="product_add_color" placeholder="Color"><br>
+                  <input type="text" name="Color" claas="input3" id="product_add_color" placeholder="Color"><br>
                   <label id="label_size">Size</label><br>
-                  <input type="text" name="product_add_size" claas="input3" id="product_add_size" placeholder="Size"><br>
+                  <input type="text" name="Size" claas="input3" id="product_add_size" placeholder="Size"><br>
                   <button type="submit" claas="" id="submit_add_product">Add</button>
                   </div>
                  </div>

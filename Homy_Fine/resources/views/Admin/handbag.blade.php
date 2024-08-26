@@ -58,20 +58,20 @@
 
 
 
-        @foreach ($addproduct as $d)
+        @foreach ($prod as $p)
 
 
            <button id="openModalBtn" style="border-style: none; background-color: #c7f6d000;     color: #5c1d9a;">
             <div class="card blue">
                 <div class="product">
-                    <span class="number">{{$d->id}}</span>
-                    <span class="sneakers">{{$d->Product_Name}}</span>
-                    <img src="{{$d->Product_Imge}}">
+                    <span class="number">{{$p->id}}</span>
+                    <span class="sneakers">{{$p->Product_Name}}</span>
+                    <img src="{{$p->Product_Imge}}">
                 </div>
                 <div class="title">
-                    <h2 class="title1" >{{$d->Product_Name}}</h2>
+                    <h2 class="title1" >{{$p->Product_Name}}</h2>
                 <br>
-                <p><span class="price">{{$d->Product_Price}}</span></p>
+                <p><span class="price">{{$p->Product_Price}}</span></p>
                 </div>
             </div>
 
