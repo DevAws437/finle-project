@@ -41,8 +41,10 @@ Route::get('/viwe_User',[AdminController::class,'viwe_User']);
 //we call the page from the Function because there are Data for display it.
 Route::get('/viwe_Prod',[AdminController::class,'viwe_Prod']);
 //we call the page from the Function because there are Data for display it.
-Route::post('/add_product',[AdminController::class,"add_product"]);
 
+Route::get('/add_Prodcut_view',[AdminController::class,'add_Prodcut_view']);
+
+Route::post('/add_product',[AdminController::class,"add_product"]);
 //delet_Product
 Route::get('/delet_product/{id}',[AdminController::class,"delet_product"]);
 
@@ -93,5 +95,8 @@ Route::get('/product_to_user',[HomeController::class,'product_to_user']);
 Route::post('/View_Shopping_cart/{id}',[HomeController::class,"View_Shopping_cart"]);
 
 Route::get('/Show_sh_cart',[HomeController::class,"Show_sh_cart"]);
+
+
+Route::get('/handpag',[HomeController::class,"handpag"]);
 
 

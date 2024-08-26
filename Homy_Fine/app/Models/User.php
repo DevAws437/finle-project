@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use illuminate\Database\Eloquent\Model;
 
 
 class User extends Authenticatable
@@ -80,6 +81,8 @@ public function Shopping_cart(): BelongsTo
     return $this->belongsTo(shopping_carts::class);
 
 }
+
+
 
 
 

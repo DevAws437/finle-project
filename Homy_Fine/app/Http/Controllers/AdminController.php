@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\product;
 use App\Models\Section;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+
+
+
+
+
 
 class AdminController extends Controller
 {
@@ -49,6 +55,26 @@ public function DashboardAdmin()
     //show user tabel in dashboard admin page
     $user=User::all();
     return view('admin.DashboardAdmin',compact('user'));
+}
+
+public function add_user_api(Request $req)
+{
+    $vaild =Validator::make($req->all(), [
+        'name'=>'required|string|max:255',
+         'email'=>'required|string|max:255',
+         'password'=>'required|string|max:255',
+    ]);
+    if($vaild->fails())
+    {
+        return response()->json(['errors'=>$vaild->errors()],400);
+
+    }
+    $User=new User;
+    $User->full_name=$req->Full_name;
+    $User->email_signup=$req->email;
+    $User->create_password=$req->password;
+    $User->save();
+    return response()->json(['message'=>'add succeful','User'=>$User],201);
 }
 
 //======(Sections Function)========
@@ -103,14 +129,22 @@ public function viwe_Prod()
     return view('admin.Product',compact('prod','sec'));
 }
 
-
+public function add_Prodcut_view()
+{
+    //show Product page
+    $prod=Product::all();
+    $sec=Section::all();
+    return view('admin.addproductPage',compact('prod','sec'));
+}
 
 public function add_product(Request $req)
 {
     //add new product to the sql tabel
-    $product=new Product ;
+    $product=new Product;
+    $sec = new Section;
     $product->Product_Name=$req->Product_Name;
     $product->Product_Price=$req->Product_Price;
+    $product->section_id=$req->Section_ID;
     $product->Description=$req->Description;
     $product->Color=$req->Color;
     $product->Size=$req->Size;
@@ -120,11 +154,13 @@ public function add_product(Request $req)
         $imageName = time().'.'.$req->file('Product_Imge')->getClientOriginalExtension();
         $req->Product_Imge->move('images', $imageName);
         $product->Product_Imge='images/'. $imageName;
-    $product->save();
-    return redirect()->back()->with("message", "product added successfully");
+        $product->save();
+        return redirect()->back();
+    }
 
 }
-}
+
+
 
 public function delet_product($id)
 {
