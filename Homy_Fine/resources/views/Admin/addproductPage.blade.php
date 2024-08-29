@@ -76,7 +76,7 @@
                   <input type="file" name="imge"  id="product_add_image" placeholder="Product Image"><br>
                   <label id="lable_section">Section</label><br>
 
-                  <select name="Section_ID "  id="section_product_add_id" placeholder="Section">
+                  <select name="Section_ID" id="section_product_add_id" placeholder="Section" >
                     @foreach ($sec as $s)
                      <option value="{{$s->id}}">{{$s->Section_Name}}</option>
                      @endforeach
@@ -106,7 +106,7 @@
                      <th class="th_product">Color</th>
                      <th class="column_size_product">Description</th>
                   </tr>
-                  @foreach ($prod as $p)
+                  @foreach ($product as $p)
                   <tr>
                      <td class="column_id_product">{{$p->id}}</td>
                      <td class="td_product">{{$p->Product_Name}}</td>

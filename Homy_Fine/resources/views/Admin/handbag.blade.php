@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style_project.css">
 </head>
 <body>
 
@@ -58,20 +58,25 @@
 
 
 
-        @foreach ($prod as $p)
-
-
+        @foreach ($product as $p)
            <button id="openModalBtn" style="border-style: none; background-color: #c7f6d000;     color: #5c1d9a;">
             <div class="card blue">
                 <div class="product">
-                    <span class="number">{{$p->id}}</span>
-                    <span class="sneakers">{{$p->Product_Name}}</span>
-                    <img src="{{$p->Product_Imge}}">
+                    {{-- <span class="number" >{{$p->id}}</span> --}}
+                    <input type="hidden" name="Product_Name" value="{{$p->Product_Name}}">
+                    <span class="sneakers" name="Product_Name">{{$p->Product_Name}}
+
+                    </span>
+
+                    <input type="hidden" name="Product_Imge" value="{{$p->Product_Imge}}">
+                    <img src="{{$p->Product_Imge}}" name="Product_Imge">
                 </div>
                 <div class="title">
-                    <h2 class="title1" >{{$p->Product_Name}}</h2>
+                    <h2> <input class="title1" type="hidden" name="Product_Name" value="{{$p->Product_Name}}">
+                        {{$p->Product_Name}}
+                    </h2>
                 <br>
-                <p><span class="price">{{$p->Product_Price}}</span></p>
+                <p><span type="hidden" class="tite" class="price" name="Product_Price">{{$p->Product_Price}}</span></p>
                 </div>
             </div>
 
@@ -135,7 +140,7 @@
 
 </body>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/css/main.js"></script>
 
 <script type="text/javascript">
     VanillaTilt.init(document.querySelectorAll(".card"), {

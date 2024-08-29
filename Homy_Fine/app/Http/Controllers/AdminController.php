@@ -81,16 +81,35 @@ public function add_user_api(Request $req)
     public function viwe_Sections()
     {
         //show sections page
-        return view('admin.Sections');
+        $section=Section::all();
+        return view('admin.section',compact('section'));
     }
+
+
+    public function add_Sections_viwe()
+    {
+        //show sections page
+        $section=Section::all();
+        return view('admin.addSection',compact('section'));
+    }
+
 
     public function add_Section(Request $req)
     {
         //add a new section to the sql table
         $section=new section ;
-        $section->Section_Name=$req->Section_Name;
+        $section->Section_Name=$req->Section_name;
         $section->Description=$req->Description;
+        $image=$req->imge;
+        if ($image)
+              {
+        $image=$req->file('imge');
+        $Section_image = time().'.'.$req->file('imge')->getClientOriginalExtension();
+        $req->imge->move('images', $Section_image);
+        $section->Section_image='images/'. $Section_image;
         $section->save();
+           }
+
         return redirect()->back()->with("message", "section added successfully");
 
     }
@@ -124,17 +143,17 @@ public function add_user_api(Request $req)
 public function viwe_Prod()
 {
     //show Product page
-    $prod=Product::all();
+    $product=Product::all();
     $sec=Section::all();
-    return view('admin.Product',compact('prod','sec'));
+    return view('admin.Product',compact('product','sec'));
 }
 
 public function add_Prodcut_view()
 {
     //show Product page
-    $prod=Product::all();
+    $product=Product::all();
     $sec=Section::all();
-    return view('admin.addproductPage',compact('prod','sec'));
+    return view('admin.addproductPage',compact('product','sec'));
 }
 
 public function add_product(Request $req)
@@ -149,16 +168,16 @@ public function add_product(Request $req)
     $product->Color=$req->Color;
     $product->Size=$req->Size;
     $image=$req->imge;
-    if ($image){
+    if ($image)
+    {
         $image=$req->file('imge');
         $imageName = time().'.'.$req->file('imge')->getClientOriginalExtension();
         $req->imge->move('images', $imageName);
         $product->Product_Imge='images/'. $imageName;
-
     }
     $product->save();
-    return redirect()->back()->with("message","product added successfully");
 
+    return redirect()->back()->with("message","product added successfully");
 }
 
 

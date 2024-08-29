@@ -57,7 +57,9 @@ Route::get('/Update_confirm_product/{id}',[AdminController::class,"Update_confir
 //======(Section)========
 Route::get('/viwe_Sections',[AdminController::class,'viwe_Sections']);
 
-Route::get('/add_Section',[AdminController::class,'add_Section']);
+Route::get('/add_Sections_viwe',[AdminController::class,'add_Sections_viwe']);
+
+Route::post('/add_Section',[AdminController::class,'add_Section']);
 
 //delet_Section
 Route::get('/delet_section/{id}',[AdminController::class,"deletcatagory"]);

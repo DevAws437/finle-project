@@ -14,7 +14,7 @@
          <ul id="menu_all">
             <li>
                <img src="../assets/icon/icons8-dashboard-50.png" id="image_dashboard" name="image_dashboard" >
-               <a href="" id="write_Dashboard">Dashboard</a><br>
+               <a href="{{url('viwe_User')}}" id="write_Dashboard">Dashboard</a><br>
             </li><br>
             <li>
                <img src="../assets/icon/icons8-product-50.png" id="image_Product" name="image_Product" >
@@ -26,7 +26,7 @@
             </li><br>
             <li>
                <img src="../assets/icon/icons8-menu-50.png" id="image_Section" name="image_Section" >
-               <a href="" id="write_Section">Section</a><br>
+               <a href="{{url('viwe_Sections')}}" id="write_Section">Section</a><br>
                <ul id="menu_add_edite" >
                   <li><a href="{{url('')}}" class="style_add_edite_delete">Add</a></li><br>
                   <li><a href="{{url('')}}" class="style_add_edite_delete">Edite & Delete</a></li>

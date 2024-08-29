@@ -31,7 +31,7 @@ class HomeController extends Controller
     {
        $product=Product::all();
        $user=User::all();
-       return view('Admin.Home',compact('product','user'));
+       return view('Admin.handbag',compact('product','user'));
     }
 
     public function View_Shopping_cart($id ,Request $req)
@@ -59,7 +59,7 @@ class HomeController extends Controller
           return view('auth.login');
         }
     }
-   
+
         public function Show_sh_cart()
         {
             if (Auth::id())
