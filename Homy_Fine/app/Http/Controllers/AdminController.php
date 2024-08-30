@@ -100,17 +100,16 @@ public function add_user_api(Request $req)
         $section=new section ;
         $section->Section_Name=$req->Section_name;
         $section->Description=$req->Description;
-        $image=$req->imge;
-        if ($image)
-              {
-        $image=$req->file('imge');
-        $Section_image = time().'.'.$req->file('imge')->getClientOriginalExtension();
-        $req->imge->move('images', $Section_image);
-        $section->Section_image='images/'. $Section_image;
-        $section->save();
-           }
-
-        return redirect()->back()->with("message", "section added successfully");
+        $image=$req->Section_image;
+    if ($image)
+    {
+        $image=$req->file('Section_image');
+        $imageName = time().'.'.$req->file('Section_image')->getClientOriginalExtension();
+        $req->Section_image->move('images', $imageName);
+        $section->Section_image='images/'. $imageName;
+    }
+    $section->save();
+    return redirect()->back()->with("message","product added successfully");
 
     }
 
