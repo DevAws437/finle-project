@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>edite and delete product</title>
-    <link rel="stylesheet" href="../assets/css/style project.css">
+    <link rel="stylesheet" href="../assets/css/style_project.css">
     <link rel="icon" href="../assets/icon/icons8-edit-62-removebg-preview.png"/>
 </head>
 <body id="body_edite_and_delete_product">
@@ -20,7 +20,7 @@
             </div>
             <div class="container">
                <div class="overlay">
-                  <form action="" method="get" >
+                  <form action="{{url('add_product')}}" method="get" >
                      <div  id="part_all_edite" class="form_edite_delete_product">
                         <div class="part_input_edite">
                         <label for=""><h3>Product Name</h3></label><br>
@@ -63,24 +63,27 @@
                        <th class="th_product">Active</th>
                        <th class="column_size_product">Active</th>
                     </tr>
+
+                    @foreach ($product as $p)
                     <tr>
-                       <td class="column_id_product">1</td>
-                       <td class="td_product">asdfafasd</td>
-                       <td class="td_product">1122222233</td>
-                       <td class="td_product">sadfsdf</td>
-                       <td class="td_product">dsfdsf</td>
-                       <td class="td_product">dsfdsf</td>
-                       <td class="td_product">dsfdsf</td>
-                       <td class="td_product">dsfdsf</td>
+                        <td class="column_id_product">{{$p->id}}</td>
+                        <td class="td_product">{{$p->Product_Name}}</td>
+                        <td class="td_product">{{$p->Product_Price}}</td>
+                        <td class="td_product">{{$p->Product_Imge}}</td>
+                        <td class="td_product">{{$p->Section_ID}}</td>
+                        <td class="td_product">{{$p->Size}}</td>
+                        <td class="td_product">{{$p->Color}}</td>
+                        <td class="column_size_product">{{$p->Description}}</td>
                        <td class="td_product"><a href="#part_all_edite"  name="button_edite_product"><img class="button_table" id="button_edite_product" src="../assets/icon/icons8-edit-62-removebg-preview.png" alt=""></a></td>
                        <td class="column_size_product"><a href=""  name="button_delete_product"><img class="button_delete"  src="../assets/icon/icons8-delete-48 (1).png" alt=""></a></td>
                     </tr>
+                    @endforeach
                 </table>
               </div>
             </div>
          </div>
 
-        <script src="../assets/java script/file java script.js"></script>
+        <script src="assets/css/main.js"></script>
     </div>
 
 </body>

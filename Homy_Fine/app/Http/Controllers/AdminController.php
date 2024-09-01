@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bill;
 use Illuminate\Http\Request;
 use App\Models\product;
 use App\Models\Section;
@@ -121,11 +122,17 @@ public function add_user_api(Request $req)
 
     public function delet_section($id)
     {
-        $deletsection=Section::find($id);
-        $deletsection->delete();
+        $section=Section::find($id);
+        $section->delete();
         return redirect()->back()->with("message1", "Section removed successfully");
     }
 
+    public function update_Sections_viwe()
+    {
+        //show sections page
+        $section=Section::all();
+        return view('Admin.edite_delete_section',compact('section'));
+    }
     public function updata_section($id)
     {
         $section=Section::find($id);
@@ -202,6 +209,13 @@ public function delet_product($id)
     return redirect()->back()->with("message1", "Product removed successfully");
 }
 
+public function update_Product_viwe()
+{
+    //show sections page
+    $product=product::all();
+    return view('Admin.edite_delete_product',compact('product'));
+}
+
 public function updata_product($id)
 {
     $product=product::find($id);
@@ -231,7 +245,13 @@ public function viwe_shopping_cart()
     return view('admin.section',compact('sec'));
 }
 
-
+//======(Invoice)========
+public function Viwe_Invoice()
+{
+    //show user tabel in dashboard admin page
+    $bill=Bill::all();
+    return view('Admin.invoice',compact('bill'));
+}
 }
 
 

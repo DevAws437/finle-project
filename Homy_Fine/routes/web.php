@@ -49,6 +49,8 @@ Route::post('/add_product',[AdminController::class,"add_product"]);
 Route::get('/delet_product/{id}',[AdminController::class,"delet_product"]);
 
 //updata_Product
+Route::get('/update_Product_viwe',[AdminController::class,"update_Product_viwe"]);
+
 Route::get('/updata_product/{id}',[AdminController::class,"updata_product"]);
 
 Route::get('/Update_confirm_product/{id}',[AdminController::class,"Update_confirm_product"]);
@@ -67,6 +69,8 @@ Route::post('/add_Section',[AdminController::class,'add_Section']);
 Route::get('/delet_section/{id}',[AdminController::class,"deletcatagory"]);
 
 //Updata_Section
+Route::get('/update_Sections_viwe',[AdminController::class,"update_Sections_viwe"]);
+
 Route::get('/updata_section/{id}',[AdminController::class,"updata_section"]);
 
 Route::get('/Update_confirm_Section/{id}',[AdminController::class,"Update_confirm_Section"]);
@@ -101,22 +105,16 @@ Route::post('/View_Shopping_cart/{id}',[HomeController::class,"View_Shopping_car
 Route::get('/Show_sh_cart',[HomeController::class,"Show_sh_cart"]);
 
 
+//======(Invoice)========
+Route::get('/Viwe_Invoice',[AdminController::class,"Viwe_Invoice"]);
 
 
 
-// Route::get('/handpag',[AdminController::class,"handpag"]);
-Route::get('/.grid_card', function () {
-    return view('User.home.grid_card');
-})->name('.grid_card');
 
-Route::get('/handbag', function () {
-    return view('Admin.handbag');
-})->name('handbag');
 
 Route::get('/cart', function () {
     return view('User.cart');
 })->name('cart');
 
-Route::get('/home', function () {
-    return view('User.home');
-})->name('home');
+
+

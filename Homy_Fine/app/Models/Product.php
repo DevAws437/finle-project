@@ -13,13 +13,13 @@ class Product extends Model
     use HasFactory;
 
 
-    public function catagory(): BelongsTo
+    public function Section(): BelongsTo
     {
         return $this->belongsTo(Section::class);
 
     }
 
-    public function carts(): BelongsTo
+    public function shopping_carts(): BelongsTo
     {
         return $this->belongsTo(shopping_carts::class);
 

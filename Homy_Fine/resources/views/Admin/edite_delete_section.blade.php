@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>edite and delete Section</title>
-    <link rel="stylesheet" href="../assets/css/style project.css">
+    <link rel="stylesheet" href="../assets/css/style_project.css">
     <link rel="icon" href="../assets/icon/icons8-edit-62-removebg-preview.png"/>
 </head>
 <body id="body_edite_and_delete_product">
@@ -20,7 +20,7 @@
             </div>
             <div class="container">
                <div class="overlay">
-                  <form action="" method="get" >
+                  <form action="{{url('add_Section')}}" method="get" >
                      <div  id="part_all_edite" class="form_edite_delete_product">
                         <div class="part_input_edite">
                         <label for=""><h3>Section Name</h3></label><br>
@@ -53,10 +53,10 @@
                         @foreach ( $section as $s )
                         <td class="column_id_section">{{$s->id}}</td>
                         <td class="td_section">{{$s->Section_Name}}</td>
-                        <td class="td_section">{{$s->Product_Imge}}</td>
+                        <td class="td_section">{{$s->Section_image}}</td>
                         <td class="column_Description_section">{{$s->Description}}</td>
-                       <td class="td_edite_section"><a href="#part_all_edite"  name="button_edite_product"><img class="button_table" id="button_edite_product" src="../assets/icon/icons8-edit-62-removebg-preview.png" alt=""></a></td>
-                       <td class="column_Description_section_edite"><a href=""  name="button_delete_product"><img class="button_delete"  src="../assets/icon/icons8-delete-48 (1).png" alt=""></a></td>
+                       <td class="td_edite_section"><a href="{{url('updata_section',$s->id)}}"  name="button_edite_product"><img class="button_table" id="button_edite_product" src="../assets/icon/icons8-edit-62-removebg-preview.png" alt=""></a></td>
+                       <td class="column_Description_section_edite"><a href="{{url('delet_section',$s->id)}}"  name="button_delete_product"><img class="button_delete"  src="../assets/icon/icons8-delete-48 (1).png" alt=""></a></td>
                     </tr>
                     @endforeach
                 </table>
@@ -64,6 +64,6 @@
             </div>
          </div>
 
-         <script src="../assets/java script/file java script.js"></script>
+         <script src="assets/css/main.js"></script>
     </div>
 </html>
