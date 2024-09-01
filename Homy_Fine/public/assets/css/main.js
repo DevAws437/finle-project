@@ -70,43 +70,43 @@ images[0].classList.add('active');
 
 var VanillaTilt = (function () {
     'use strict';
-    
+
     /**
      * Created by Sergiu Șandor (micku7zu) on 1/27/2017.
      * Original idea: https://github.com/gijsroge/tilt.js
      * MIT License.
      * Version 1.8.1
      */
-    
+
     class VanillaTilt {
       constructor(element, settings = {}) {
         if (!(element instanceof Node)) {
           throw ("Can't initialize VanillaTilt because " + element + " is not a Node.");
         }
-    
+
         this.width = null;
         this.height = null;
         this.clientWidth = null;
         this.clientHeight = null;
         this.left = null;
         this.top = null;
-    
+
         // for Gyroscope sampling
         this.gammazero = null;
         this.betazero = null;
         this.lastgammazero = null;
         this.lastbetazero = null;
-    
+
         this.transitionTimeout = null;
         this.updateCall = null;
         this.event = null;
-    
+
         this.updateBind = this.update.bind(this);
         this.resetBind = this.reset.bind(this);
-    
+
         this.element = element;
         this.settings = this.extendSettings(settings);
-    
+
         this.reverse = this.settings.reverse ? -1 : 1;
         this.resetToStart = VanillaTilt.isSettingTrue(this.settings["reset-to-start"]);
         this.glare = VanillaTilt.isSettingTrue(this.settings.glare);
@@ -114,30 +114,30 @@ var VanillaTilt = (function () {
         this.fullPageListening = VanillaTilt.isSettingTrue(this.settings["full-page-listening"]);
         this.gyroscope = VanillaTilt.isSettingTrue(this.settings.gyroscope);
         this.gyroscopeSamples = this.settings.gyroscopeSamples;
-    
+
         this.elementListener = this.getElementListener();
-    
+
         if (this.glare) {
           this.prepareGlare();
         }
-    
+
         if (this.fullPageListening) {
           this.updateClientSize();
         }
-    
+
         this.addEventListeners();
         this.reset();
-    
+
         if (this.resetToStart === false) {
           this.settings.startX = 0;
           this.settings.startY = 0;
         }
       }
-    
+
       static isSettingTrue(setting) {
         return setting === "" || setting === true || setting === 1;
       }
-    
+
       /**
        * Method returns element what will be listen mouse events
        * @return {Node}
@@ -146,22 +146,22 @@ var VanillaTilt = (function () {
         if (this.fullPageListening) {
           return window.document;
         }
-    
+
         if (typeof this.settings["mouse-event-element"] === "string") {
           const mouseEventElement = document.querySelector(this.settings["mouse-event-element"]);
-    
+
           if (mouseEventElement) {
             return mouseEventElement;
           }
         }
-    
+
         if (this.settings["mouse-event-element"] instanceof Node) {
           return this.settings["mouse-event-element"];
         }
-    
+
         return this.element;
       }
-    
+
       /**
        * Method set listen methods for this.elementListener
        * @return {Node}
@@ -172,20 +172,20 @@ var VanillaTilt = (function () {
         this.onMouseLeaveBind = this.onMouseLeave.bind(this);
         this.onWindowResizeBind = this.onWindowResize.bind(this);
         this.onDeviceOrientationBind = this.onDeviceOrientation.bind(this);
-    
+
         this.elementListener.addEventListener("mouseenter", this.onMouseEnterBind);
         this.elementListener.addEventListener("mouseleave", this.onMouseLeaveBind);
         this.elementListener.addEventListener("mousemove", this.onMouseMoveBind);
-    
+
         if (this.glare || this.fullPageListening) {
           window.addEventListener("resize", this.onWindowResizeBind);
         }
-    
+
         if (this.gyroscope) {
           window.addEventListener("deviceorientation", this.onDeviceOrientationBind);
         }
       }
-    
+
       /**
        * Method remove event listeners from current this.elementListener
        */
@@ -193,45 +193,45 @@ var VanillaTilt = (function () {
         this.elementListener.removeEventListener("mouseenter", this.onMouseEnterBind);
         this.elementListener.removeEventListener("mouseleave", this.onMouseLeaveBind);
         this.elementListener.removeEventListener("mousemove", this.onMouseMoveBind);
-    
+
         if (this.gyroscope) {
           window.removeEventListener("deviceorientation", this.onDeviceOrientationBind);
         }
-    
+
         if (this.glare || this.fullPageListening) {
           window.removeEventListener("resize", this.onWindowResizeBind);
         }
       }
-    
+
       destroy() {
         clearTimeout(this.transitionTimeout);
         if (this.updateCall !== null) {
           cancelAnimationFrame(this.updateCall);
         }
-    
+
         this.element.style.willChange = "";
         this.element.style.transition = "";
         this.element.style.transform = "";
         this.resetGlare();
-    
+
         this.removeEventListeners();
         this.element.vanillaTilt = null;
         delete this.element.vanillaTilt;
-    
+
         this.element = null;
       }
-    
+
       onDeviceOrientation(event) {
         if (event.gamma === null || event.beta === null) {
           return;
         }
-    
+
         this.updateElementPosition();
-    
+
         if (this.gyroscopeSamples > 0) {
           this.lastgammazero = this.gammazero;
           this.lastbetazero = this.betazero;
-    
+
           if (this.gammazero === null) {
             this.gammazero = event.gamma;
             this.betazero = event.beta;
@@ -239,60 +239,60 @@ var VanillaTilt = (function () {
             this.gammazero = (event.gamma + this.lastgammazero) / 2;
             this.betazero = (event.beta + this.lastbetazero) / 2;
           }
-    
+
           this.gyroscopeSamples -= 1;
         }
-    
+
         const totalAngleX = this.settings.gyroscopeMaxAngleX - this.settings.gyroscopeMinAngleX;
         const totalAngleY = this.settings.gyroscopeMaxAngleY - this.settings.gyroscopeMinAngleY;
-    
+
         const degreesPerPixelX = totalAngleX / this.width;
         const degreesPerPixelY = totalAngleY / this.height;
-    
+
         const angleX = event.gamma - (this.settings.gyroscopeMinAngleX + this.gammazero);
         const angleY = event.beta - (this.settings.gyroscopeMinAngleY + this.betazero);
-    
+
         const posX = angleX / degreesPerPixelX;
         const posY = angleY / degreesPerPixelY;
-    
+
         if (this.updateCall !== null) {
           cancelAnimationFrame(this.updateCall);
         }
-    
+
         this.event = {
           clientX: posX + this.left,
           clientY: posY + this.top,
         };
-    
+
         this.updateCall = requestAnimationFrame(this.updateBind);
       }
-    
+
       onMouseEnter() {
         this.updateElementPosition();
         this.element.style.willChange = "transform";
         this.setTransition();
       }
-    
+
       onMouseMove(event) {
         if (this.updateCall !== null) {
           cancelAnimationFrame(this.updateCall);
         }
-    
+
         this.event = event;
         this.updateCall = requestAnimationFrame(this.updateBind);
       }
-    
+
       onMouseLeave() {
         this.setTransition();
-    
+
         if (this.settings.reset) {
           requestAnimationFrame(this.resetBind);
         }
       }
-    
+
       reset() {
         this.onMouseEnter();
-    
+
         if (this.fullPageListening) {
           this.event = {
             clientX: (this.settings.startX + this.settings.max) / (2 * this.settings.max) * this.clientWidth,
@@ -304,24 +304,24 @@ var VanillaTilt = (function () {
             clientY: this.top + ((this.settings.startY + this.settings.max) / (2 * this.settings.max) * this.height)
           };
         }
-    
+
         let backupScale = this.settings.scale;
         this.settings.scale = 1;
         this.update();
         this.settings.scale = backupScale;
         this.resetGlare();
       }
-    
+
       resetGlare() {
         if (this.glare) {
           this.glareElement.style.transform = "rotate(180deg) translate(-50%, -50%)";
           this.glareElement.style.opacity = "0";
         }
       }
-    
+
       getValues() {
         let x, y;
-    
+
         if (this.fullPageListening) {
           x = this.event.clientX / this.clientWidth;
           y = this.event.clientY / this.clientHeight;
@@ -329,14 +329,14 @@ var VanillaTilt = (function () {
           x = (this.event.clientX - this.left) / this.width;
           y = (this.event.clientY - this.top) / this.height;
         }
-    
+
         x = Math.min(Math.max(x, 0), 1);
         y = Math.min(Math.max(y, 0), 1);
-    
+
         let tiltX = (this.reverse * (this.settings.max - x * this.settings.max * 2)).toFixed(2);
         let tiltY = (this.reverse * (y * this.settings.max * 2 - this.settings.max)).toFixed(2);
         let angle = Math.atan2(this.event.clientX - (this.left + this.width / 2), -(this.event.clientY - (this.top + this.height / 2))) * (180 / Math.PI);
-    
+
         return {
           tiltX: tiltX,
           tiltY: tiltY,
@@ -345,36 +345,36 @@ var VanillaTilt = (function () {
           angle: angle
         };
       }
-    
+
       updateElementPosition() {
         let rect = this.element.getBoundingClientRect();
-    
+
         this.width = this.element.offsetWidth;
         this.height = this.element.offsetHeight;
         this.left = rect.left;
         this.top = rect.top;
       }
-    
+
       update() {
         let values = this.getValues();
-    
+
         this.element.style.transform = "perspective(" + this.settings.perspective + "px) " +
           "rotateX(" + (this.settings.axis === "x" ? 0 : values.tiltY) + "deg) " +
           "rotateY(" + (this.settings.axis === "y" ? 0 : values.tiltX) + "deg) " +
           "scale3d(" + this.settings.scale + ", " + this.settings.scale + ", " + this.settings.scale + ")";
-    
+
         if (this.glare) {
           this.glareElement.style.transform = `rotate(${values.angle}deg) translate(-50%, -50%)`;
           this.glareElement.style.opacity = `${values.percentageY * this.settings["max-glare"] / 100}`;
         }
-    
+
         this.element.dispatchEvent(new CustomEvent("tiltChange", {
           "detail": values
         }));
-    
+
         this.updateCall = null;
       }
-    
+
       /**
        * Appends the glare element (if glarePrerender equals false)
        * and sets the default style
@@ -385,21 +385,21 @@ var VanillaTilt = (function () {
           // Create glare element
           const jsTiltGlare = document.createElement("div");
           jsTiltGlare.classList.add("js-tilt-glare");
-    
+
           const jsTiltGlareInner = document.createElement("div");
           jsTiltGlareInner.classList.add("js-tilt-glare-inner");
-    
+
           jsTiltGlare.appendChild(jsTiltGlareInner);
           this.element.appendChild(jsTiltGlare);
         }
-    
+
         this.glareElementWrapper = this.element.querySelector(".js-tilt-glare");
         this.glareElement = this.element.querySelector(".js-tilt-glare-inner");
-    
+
         if (this.glarePrerender) {
           return;
         }
-    
+
         Object.assign(this.glareElementWrapper.style, {
           "position": "absolute",
           "top": "0",
@@ -410,7 +410,7 @@ var VanillaTilt = (function () {
           "pointer-events": "none",
           "border-radius": "inherit"
         });
-    
+
         Object.assign(this.glareElement.style, {
           "position": "absolute",
           "top": "50%",
@@ -421,50 +421,50 @@ var VanillaTilt = (function () {
           "transform-origin": "0% 0%",
           "opacity": "0"
         });
-    
+
         this.updateGlareSize();
       }
-    
+
       updateGlareSize() {
         if (this.glare) {
           const glareSize = (this.element.offsetWidth > this.element.offsetHeight ? this.element.offsetWidth : this.element.offsetHeight) * 2;
-    
+
           Object.assign(this.glareElement.style, {
             "width": `${glareSize}px`,
             "height": `${glareSize}px`,
           });
         }
       }
-    
+
       updateClientSize() {
         this.clientWidth = window.innerWidth
           || document.documentElement.clientWidth
           || document.body.clientWidth;
-    
+
         this.clientHeight = window.innerHeight
           || document.documentElement.clientHeight
           || document.body.clientHeight;
       }
-    
+
       onWindowResize() {
         this.updateGlareSize();
         this.updateClientSize();
       }
-    
+
       setTransition() {
         clearTimeout(this.transitionTimeout);
         this.element.style.transition = this.settings.speed + "ms " + this.settings.easing;
         if (this.glare) this.glareElement.style.transition = `opacity ${this.settings.speed}ms ${this.settings.easing}`;
-    
+
         this.transitionTimeout = setTimeout(() => {
           this.element.style.transition = "";
           if (this.glare) {
             this.glareElement.style.transition = "";
           }
         }, this.settings.speed);
-    
+
       }
-    
+
       /**
        * Method return patched settings of instance
        * @param {boolean} settings.reverse - reverse the tilt direction
@@ -514,7 +514,7 @@ var VanillaTilt = (function () {
           gyroscopeMaxAngleY: 45,
           gyroscopeSamples: 10
         };
-    
+
         let newSettings = {};
         for (var property in defaultSettings) {
           if (property in settings) {
@@ -526,28 +526,28 @@ var VanillaTilt = (function () {
             } catch (e) {
               newSettings[property] = attribute;
             }
-    
+
           } else {
             newSettings[property] = defaultSettings[property];
           }
         }
-    
+
         return newSettings;
       }
-    
+
       static init(elements, settings) {
         if (elements instanceof Node) {
           elements = [elements];
         }
-    
+
         if (elements instanceof NodeList) {
           elements = [].slice.call(elements);
         }
-    
+
         if (!(elements instanceof Array)) {
           return;
         }
-    
+
         elements.forEach((element) => {
           if (!("vanillaTilt" in element)) {
             element.vanillaTilt = new VanillaTilt(element, settings);
@@ -555,19 +555,19 @@ var VanillaTilt = (function () {
         });
       }
     }
-    
+
     if (typeof document !== "undefined") {
       /* expose the class to window */
       window.VanillaTilt = VanillaTilt;
-    
+
       /**
        * Auto load
        */
       VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
     }
-    
+
     return VanillaTilt;
-    
+
     }());
 
 
@@ -577,18 +577,45 @@ var VanillaTilt = (function () {
       const modal = document.getElementById("myModal");
       const btn = document.getElementById("openModalBtn");
       const span = document.getElementsByClassName("closeBtn")[0];
-  
+
       btn.onclick = function() {
           modal.style.display = "block";
       }
-  
+
       span.onclick = function() {
           modal.style.display = "none";
       }
-  
+
       window.onclick = function(event) {
           if (event.target == modal) {
               modal.style.display = "none";
           }
       }
   });
+
+
+  document.querySelector('#contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.target.elements.name.value = '';
+    e.target.elements.email.value = '';
+    e.target.elements.message.value = '';
+  });
+
+
+//   edit product and section
+// mutasem
+const button = document.querySelector('#button_edite_product');
+const overlay = document.querySelector('.overlay');
+
+button.addEventListener('click', () => {
+  overlay.style.display = overlay.style.display === 'none' ? 'block' : 'none';
+});
+//         $(document).ready(function(){
+
+//         $('.button_edite').click(function(){
+
+//         $('.overlay').toggle();
+
+// });
+
+// });

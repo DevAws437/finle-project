@@ -23,7 +23,7 @@
                <div  id="part_all">
                   <div class="part_input">
                   <label for="">Section Name</label><br>
-                  <input type="text" name="Section_name" id="product_add_name"  placeholder="Section Name"><br>
+                  <input type="text" name="Section_Name" id="product_add_name"  placeholder="Section Name"><br>
 
                   </div>
                   <div class="part_input">

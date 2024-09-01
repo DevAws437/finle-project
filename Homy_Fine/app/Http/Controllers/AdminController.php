@@ -90,15 +90,21 @@ public function add_user_api(Request $req)
     {
         //show sections page
         $section=Section::all();
-        return view('admin.addSection',compact('section'));
+        return view('Admin.addSection',compact('section'));
     }
 
+    public function Home_section()
+    {
+        //show sections page
+        $section=Section::all();
+        return view('User.home',compact('section'));
+    }
 
     public function add_Section(Request $req)
     {
         //add a new section to the sql table
         $section=new section ;
-        $section->Section_Name=$req->Section_name;
+        $section->Section_Name=$req->Section_Name;
         $section->Description=$req->Description;
         $image=$req->Section_image;
     if ($image)
@@ -122,16 +128,24 @@ public function add_user_api(Request $req)
 
     public function updata_section($id)
     {
-        $sec=Section::find($id);
-        return view('admin.updatesection',compact('sec'));
+        $section=Section::find($id);
+        return view('Admin.edite_delete_section',compact('section'));
     }
 
     public function Update_confirm_Section($id,Request $req)
 {
-    $sec=Section::find($id);
-    $sec->Cat_Name=$req->Category_Name;
-    $sec->Description=$req->Description;
-    $sec->save();
+    $section=Section::find($id);
+    $section->Section_Name=$req->Section_Name;
+    $section->Description=$req->Description;
+    $image=$req->Section_image;
+    if ($image)
+    {
+        $image=$req->file('Section_image');
+        $imageName = time().'.'.$req->file('Section_image')->getClientOriginalExtension();
+        $req->Section_image->move('images', $imageName);
+        $section->Section_image='images/'. $imageName;
+    }
+    $section->save();
     return redirect()->back()->with("message1", "Section updata successfully");
 }
 //==================================================================================
@@ -191,7 +205,7 @@ public function delet_product($id)
 public function updata_product($id)
 {
     $product=product::find($id);
-    return view('admin.updateproduct',compact('product'));
+    return view('admin.edite_delete_product',compact('product'));
 }
 
 public function Update_confirm_product($id,Request $req)

@@ -31,7 +31,7 @@ class HomeController extends Controller
     {
        $product=Product::all();
        $user=User::all();
-       return view('Admin.handbag',compact('product','user'));
+       return view('User.handbag',compact('product','user'));
     }
 
     public function View_Shopping_cart($id ,Request $req)

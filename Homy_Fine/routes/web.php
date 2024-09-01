@@ -57,6 +57,8 @@ Route::get('/Update_confirm_product/{id}',[AdminController::class,"Update_confir
 //======(Section)========
 Route::get('/viwe_Sections',[AdminController::class,'viwe_Sections']);
 
+Route::get('/Home_section',[AdminController::class,'Home_section']);
+
 Route::get('/add_Sections_viwe',[AdminController::class,'add_Sections_viwe']);
 
 Route::post('/add_Section',[AdminController::class,'add_Section']);
@@ -99,9 +101,22 @@ Route::post('/View_Shopping_cart/{id}',[HomeController::class,"View_Shopping_car
 Route::get('/Show_sh_cart',[HomeController::class,"Show_sh_cart"]);
 
 
-// Route::get('/handpag',[AdminController::class,"handpag"]);
 
+
+
+// Route::get('/handpag',[AdminController::class,"handpag"]);
+Route::get('/.grid_card', function () {
+    return view('User.home.grid_card');
+})->name('.grid_card');
 
 Route::get('/handbag', function () {
     return view('Admin.handbag');
 })->name('handbag');
+
+Route::get('/cart', function () {
+    return view('User.cart');
+})->name('cart');
+
+Route::get('/home', function () {
+    return view('User.home');
+})->name('home');
