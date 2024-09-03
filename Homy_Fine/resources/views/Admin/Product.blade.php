@@ -20,7 +20,7 @@
 
             <h3 id="title_table_product">Product Table</h3>
 
-               <table  id="product_tuble" >
+               <table id="table_scr" class="product_tuble" >
                   <tr>
                      <th class="column_id_product">Id</th>
                      <th class="th_product">Product Name</th>
@@ -47,6 +47,7 @@
                   @endforeach
 
               </table>
+              <script src="assets/script.js"></script>
 
         </div>
 

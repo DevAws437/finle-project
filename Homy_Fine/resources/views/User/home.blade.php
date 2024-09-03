@@ -9,6 +9,7 @@
 </head>
 <body >
     <!-- section one -->
+    <div class="spinner"></div>
 
     <header id="home" class="header-area">
         @include('nav_dashboard.bar')

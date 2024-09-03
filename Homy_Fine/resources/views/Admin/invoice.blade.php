@@ -20,7 +20,7 @@
 
             <h3 id="title_table_invoice">Invoice table</h3>
 
-               <table  id="invoice_tuble" >
+               <table id="table_scr" class="invoice_tuble" >
                   <tr>
                      <th class="column_id">Id</th>
                      <th>Total amount</th>
@@ -31,7 +31,7 @@
                   </tr>
                   @foreach ($bill as $b)
 
-                  
+
                   <tr>
                      <td class="column_id">{{$b->id}}</td>
                      <td >{{$b->Total_amount}}</td>
@@ -42,6 +42,7 @@
                   </tr>
                   @endforeach
               </table>
+              <script src="assets/script.js"></script>
 
         </div>
 

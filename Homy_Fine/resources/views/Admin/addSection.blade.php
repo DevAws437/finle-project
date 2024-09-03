@@ -15,7 +15,7 @@
             <div id="div_search">
                 <h1 id="total_dashboard">Add Section</h1>
                 <img src="../assets/icon/icons8-search-50.png " id="image_search" >
-                <input type="text" name="input_search" id="input_search" placeholder="Search">
+                <input type="text" name="input_search" id="input_search" placeholder="Search" class="input_search">
             </div>
 
             <form action="{{url('add_Section')}}" method="post" enctype="multipart/form-data">
@@ -41,7 +41,7 @@
 
             <h3 id="add_section_title_table">Product Table</h3>
 
-            <table  id="section_add_tuble" >
+            <table  id="table_scr" name="table" class="section_add_tuble">
                 <tr>
                    <th class="column_id_section">Id</th>
                    <th class="th_section">Section Name</th>
@@ -58,8 +58,14 @@
                   @endforeach
             </table>
 
+            <script src="assets/script.js"></script>
+
         </div>
 
     </div>
+
+
+
 </body>
+
 </html>

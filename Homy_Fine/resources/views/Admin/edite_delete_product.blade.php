@@ -50,7 +50,7 @@
                </div>
               <div  class="div_table_product">
                  <h3 id="title_table_ED_product">Product Table</h3>
-                 <table  id="edite_delete_product_tuble" >
+                 <table id="table_scr"  class="edite_delete_product_tuble" >
                     <tr>
                        <th class="column_id_product">Id</th>
                        <th class="th_product">Product Name</th>
@@ -79,6 +79,8 @@
                     </tr>
                     @endforeach
                 </table>
+                <script src="assets/script.js"></script>
+
               </div>
             </div>
          </div>

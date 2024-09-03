@@ -339,7 +339,7 @@
     font-size: 25px;
 }
 
-#user_tuble{
+.user_tuble{
     position: relative;
     top: 250px;
     left: 110px;
@@ -519,7 +519,7 @@ th,td{
     top: 91px;
     font-size: 25px;
 }
-#product_tuble{
+.product_tuble{
     position: relative;
     top: 77px;
     left: 110px;
@@ -551,7 +551,7 @@ th,td{
     top: 341px;
     font-size: 25px;
 }
-#add_product_tuble{
+.add_product_tuble{
     position: relative;
     top: 97px;
     left: 110px;
@@ -701,7 +701,7 @@ height: 35px;
     top: 91px;
     font-size: 25px;
 }
-#product_tuble{
+.product_tuble{
     position: relative;
     top: 77px;
     left: 110px;
@@ -759,7 +759,7 @@ height: 35px;
     top: 320px;
     font-size: 25px;
 }
-#section_add_tuble{
+.section_add_tuble{
     position: relative;
     top: 77px;
     left: 110px;
@@ -777,7 +777,7 @@ height: 35px;
     font-size: 25px;
 }
 
-#edite_delete_product_tuble{
+.edite_delete_product_tuble{
     position: relative;
     top: 79px;
     left: 110px;
@@ -964,7 +964,7 @@ top: 0;
     top: 0;
     font-size: 25px;
 }
-#edite_delete_section_tuble{
+.edite_delete_section_tuble{
     position: relative;
     top: 43px;
     left: 110px;
@@ -985,6 +985,24 @@ top: 0;
     padding-left: 100px;
 }
 
+/* page invoice */
+
+#title_table_invoice{
+    position: absolute;
+    left: 109px;
+    top: 90px;
+    font-size: 25px;
+}
+.invoice_tuble{
+    position: relative;
+    top: 80px;
+    left: 110px;
+    border-collapse: collapse;
+    width: 100px;
+    max-width: 100px;
+    box-shadow: 0px 0px 10px #838383d9;
+}
+
 
 
 /* Home & section ---------------------------------------------------*/
@@ -995,6 +1013,46 @@ header,section,body{
   /*===========================
       2.HEADER css
   ===========================*/
+
+  /* ======loding======= */
+
+
+
+.spinner {
+   position: relative;
+   width: 22.4px;
+   height: 22.4px;
+}
+
+.spinner::before,
+.spinner::after {
+   content: '';
+   width: 100%;
+   height: 100%;
+   display: block;
+   animation: spinner-b4c8mmmd 0.5s backwards, spinner-49opz7md 1.25s 0.5s infinite ease;
+   border: 5.6px solid #474bff;
+   border-radius: 50%;
+   box-shadow: 0 -33.6px 0 -5.6px #474bff;
+   position: absolute;
+}
+
+.spinner::after {
+   animation-delay: 0s, 1.25s;
+}
+
+@keyframes spinner-b4c8mmmd {
+   from {
+      box-shadow: 0 0 0 -5.6px #474bff;
+   }
+}
+
+@keyframes spinner-49opz7md {
+   to {
+      transform: rotate(360deg);
+   }
+}
+/* ............................................. */
   .navigation {
     -webkit-box-shadow: 0px 0px 29px 0px rgba(134, 134, 134, 0.25);
     -moz-box-shadow: 0px 0px 29px 0px rgba(134, 134, 134, 0.25);
@@ -1708,7 +1766,7 @@ header,section,body{
   }
   .card .title {
       height: 20%;
-      /* display: flex; */
+      display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 0 0 12px 12px;

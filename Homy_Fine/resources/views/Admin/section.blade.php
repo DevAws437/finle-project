@@ -14,12 +14,12 @@
             <div id="div_search">
                 <h1 id="total_dashboard">Section</h1>
                 <img src="../assets/icon/icons8-search-50.png " id="image_search" >
-                <input type="text" name="input_search" id="input_search" placeholder="Search">
+                <input type="text" name="input_search" id="input_search" placeholder="Search" class="input_search">
             </div>
 
             <h3 id="title_table_section">Section Table</h3>
 
-               <table  id="product_tuble" >
+               <table  id="table_scr" name="table" class="product_tuble">
                   <tr>
                      <th class="column_id_section">Id</th>
                      <th class="th_section">Section Name</th>
@@ -36,6 +36,7 @@
                   </tr>
                   @endforeach
               </table>
+              <script src="assets/script.js"></script>
 
         </div>
 

@@ -53,7 +53,7 @@
 
             <h3 id="add_product_title_table">Product Table</h3>
 
-               <table  id="add_product_tuble" >
+               <table id="table_scr"  class="add_product_tuble" >
                   <tr>
                      <th class="column_id_product">Id</th>
                      <th class="th_product">Product Name</th>
@@ -78,6 +78,7 @@
                   </tr>
 
               </table>
+              <script src="assets/script.js"></script>
 
         </div>
 

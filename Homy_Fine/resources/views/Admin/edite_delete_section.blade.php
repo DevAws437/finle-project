@@ -40,7 +40,7 @@
                </div>
               <div  class="div_table_product">
                  <h3 id="title_table_ED_section">Section Table</h3>
-                 <table  id="edite_delete_section_tuble" >
+                 <table id="table_scr" class="edite_delete_section_tuble" >
                     <tr>
                        <th class="column_id_section">Id</th>
                        <th class="th_edite_section">Section Name</th>
@@ -60,6 +60,8 @@
                     </tr>
                     @endforeach
                 </table>
+                <script src="assets/script.js"></script>
+
               </div>
             </div>
          </div>

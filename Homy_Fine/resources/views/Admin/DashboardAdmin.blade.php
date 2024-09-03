@@ -39,9 +39,9 @@
                   <p class="statistise_dashboard"><b>dasdasfadfadasda</b></p>
                 </header>
             </div>
-            <h3 id="title_table">user table</h3>
+            <h3 id="title_table" id="tuble">user table</h3>
 
-               <table  id="user_tuble" >
+               <table id="table_scr"  class="user_tuble" >
                   <tr>
                      <th class="column_id">Id</th>
                      <th>Full Name</th>
@@ -61,6 +61,7 @@
                   </tr>
                   @endforeach
               </table>
+              <script src="assets/script.js"></script>
 
         </div>
 
