@@ -10,25 +10,24 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 
-
-
-
-
 class AdminController extends Controller
 {
 //======(signup&login)========
-
-    public function signupuser(Request $req)
+  public function signupuser(Request $req)
 {
     //add new user to the sql tabel
     $User=new User;
-    $User->full_name=$req->Full_name;
-    $User->email_signup=$req->email;
-    $User->create_password=$req->password;
+    $User->name=$req->full_name;
+    $User->email=$req->email_signup;
+    $User->password=$req->create_password;
+    $User->phone=$req->phone;
+    $User->adress=$req->adress;
+
     $User->save();
-    return redirect()->back()->with("message", "user added successfully");
+    return view('User.login');
 
 }
+
 
     public function signup()
 {
@@ -58,6 +57,12 @@ public function DashboardAdmin()
     return view('admin.DashboardAdmin',compact('user'));
 }
 
+// fram
+
+
+
+
+
 public function add_user_api(Request $req)
 {
     $vaild =Validator::make($req->all(), [
@@ -71,7 +76,7 @@ public function add_user_api(Request $req)
 
     }
     $User=new User;
-    $User->full_name=$req->Full_name;
+    $User->name=$req->full_name;
     $User->email_signup=$req->email;
     $User->create_password=$req->password;
     $User->save();
@@ -251,6 +256,27 @@ public function Viwe_Invoice()
     //show user tabel in dashboard admin page
     $bill=Bill::all();
     return view('Admin.invoice',compact('bill'));
+}
+//==========(page user)===========
+public function viwe_page_user()
+{
+    //show user tabel in dashboard admin page
+    $user=User::all();
+    return view('admin.user',compact('user'));
+}
+
+public function edit_user_page()
+{
+    //show sections page
+    $user=User::all();
+    return view('Admin.edit and delete user',compact('user'));
+}
+
+public function delet_user($id)
+{
+    $delet_user=User::find($id);
+    $delet_user->delete();
+    return redirect()->back()->with("message1", "Product removed successfully");
 }
 }
 

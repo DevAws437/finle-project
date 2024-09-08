@@ -52,30 +52,30 @@
                  <h3 id="title_table_ED_product">Product Table</h3>
                  <table id="table_scr"  class="edite_delete_product_tuble" >
                     <tr>
-                       <th class="column_id_product">Id</th>
-                       <th class="th_product">Product Name</th>
-                       <th class="th_product">Product Price</th>
-                       <th class="th_product">Product Image</th>
-                       <th class="th_product">Section Id</th>
-                       <th class="th_product">Size</th>
-                       <th class="th_product">Color</th>
-                       <th class="th_product">Description</th>
-                       <th class="th_product">Active</th>
-                       <th class="column_size_product">Active</th>
+                       <th class="column_id_product_edite">Id</th>
+                       <th class="th_product_edite">Product Name</th>
+                       <th class="th_product_edite">Product Price</th>
+                       <th class="th_product_edite">Product Image</th>
+                       <th class="th_product_edite">Section Id</th>
+                       <th class="th_product_edite">Size</th>
+                       <th class="th_product_edite">Color</th>
+                       <th class="th_product_edite">Description</th>
+                       <th class="th_product_edite">Active</th>
+                       <th class="column_size_product_edite">Active</th>
                     </tr>
 
                     @foreach ($product as $p)
                     <tr>
-                        <td class="column_id_product">{{$p->id}}</td>
-                        <td class="td_product">{{$p->Product_Name}}</td>
-                        <td class="td_product">{{$p->Product_Price}}</td>
-                        <td class="td_product">{{$p->Product_Imge}}</td>
-                        <td class="td_product">{{$p->Section_ID}}</td>
-                        <td class="td_product">{{$p->Size}}</td>
-                        <td class="td_product">{{$p->Color}}</td>
-                        <td class="column_size_product">{{$p->Description}}</td>
-                       <td class="td_product"><a href="#part_all_edite"  name="button_edite_product"><img class="button_table" id="button_edite_product" src="../assets/icon/icons8-edit-62-removebg-preview.png" alt=""></a></td>
-                       <td class="column_size_product"><a href=""  name="button_delete_product"><img class="button_delete"  src="../assets/icon/icons8-delete-48 (1).png" alt=""></a></td>
+                        <td class="column_id_product_edite">{{$p->id}}</td>
+                        <td class="td_product_edite">{{$p->Product_Name}}</td>
+                        <td class="td_product_edite">{{$p->Product_Price}}</td>
+                        <td class="td_product_edite">{{$p->Product_Imge}}</td>
+                        <td class="td_product_edite">{{$p->Section_ID}}</td>
+                        <td class="td_product_edite">{{$p->Size}}</td>
+                        <td class="td_product_edite">{{$p->Color}}</td>
+                        <td class="td_product_edite">{{$p->Description}}</td>
+                       <td class="td_product_edite"><a href="{{url('updata_product',$p->id)}}"  name="button_edite_product"><img class="button_table" id="button_edite_product" src="../assets/icon/icons8-edit-62-removebg-preview.png" alt=""></a></td>
+                       <td class="column_size_product_edite"><a href="{{url('delet_product',$p->id)}}"  name="button_delete_product"><img class="button_delete"  src="../assets/icon/icons8-delete-48 (1).png" alt=""></a></td>
                     </tr>
                     @endforeach
                 </table>
@@ -85,7 +85,7 @@
             </div>
          </div>
 
-        <script src="assets/css/main.js"></script>
+        <script src="../assets/css/main.js"></script>
     </div>
 
 </body>

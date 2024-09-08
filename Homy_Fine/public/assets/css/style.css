@@ -1,0 +1,253 @@
+svg{
+    width: 100%;
+    height: 20%;
+    margin-top: 15px;
+}
+
+svg text {
+    font-size: 12vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    stroke: #ded05b;
+    text-stroke: 2px transparent;
+    fill: transparent;
+    margin-top: 30px;
+
+    animation: animated-stroke 5s;
+    text-anchor: middle;
+  }
+
+  @keyframes animated-stroke {
+    0%{
+
+        stroke: #0063e5;
+
+      stroke-dasharray: 0 10%;
+    }
+    50%{
+        stroke: #0063e5;
+    }
+
+    100%{
+        stroke: #00acac;
+      stroke-dasharray: 10% 0%;
+      stroke-dashoffset: 25%;
+    }
+  }
+
+
+
+.card {
+    width: 250px;
+    height: 370px;
+    border-radius: 12px;
+    transform-style: preserve-3d;
+}
+.card.blue {
+    background: linear-gradient(135deg, #d6d6d6, #f6fcff);
+     box-shadow:2 4 6 #0c0c0c;
+  }
+
+
+.card .product {
+    height: 85%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.product .number {
+   font-size: 40px;
+    line-height: 25px;
+    font-style: italic;
+    opacity: 0.25;
+    position: fixed;
+
+}
+.text-name-section{
+  position: relative;
+  top: 30px;
+}
+.product .sneakers {
+  position: fixed;
+  font-size: 32px;
+  line-height: 88px;
+  font-style: italic;
+  opacity: 0.7;
+}
+.product img {
+    height: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-35%, -45%, 0);
+    pointer-events: none;
+}
+.product .price {
+    background: rgba(255, 255, 255, 0.15);
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: -20px;
+    padding: 5px 20px;
+    border-radius: 99px 0 0 99px;
+}
+.price{
+  position: relative;
+  top: 33px;
+  right: 39px;
+  text-align: center;
+
+}
+.title{
+  position: relative;
+  top: -15px;
+  left: 30px;
+  text-align: center;
+  font-style: oblique;
+  font-size: 24px;
+  font-weight: 800;
+}
+.card .title {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 12px 12px;
+    transform-style: preserve-3d;
+    align-items: center;
+    flex-direction: column;
+}
+.card.blue .title {
+    background: #616263;
+}
+.card.purple .title {
+    background: #5B1AE3;
+}
+
+.card:hover .product img {
+    transform: translate3d(-50%, -40%, 80px);
+}
+.card:hover .product .number {
+    transform: translateZ(40px);
+    opacity: 1;
+}
+.card:hover .product .sneakers {
+    transform: translateZ(40px);
+    opacity: 0.85;
+}
+.card:hover .product .price {
+    transform: translateZ(20px);
+}
+.card:hover .title h2 {
+    transform: translateZ(20px);
+}
+
+@media (max-width:1300px){
+    svg {
+        height: 15%;
+    }
+}
+
+
+.grid_card{
+  position: relative;
+  top: 50px;
+  left: 80px;
+  display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    row-gap:50px ;
+    column-gap: 40px;
+    height: auto;
+  }
+
+/* end_section_home */
+.end_section_home{
+
+  height: 400px;
+  background-color: #333;
+}
+
+.section-header {
+  text-align: center;
+  margin: 0 auto;
+  padding: 40px 0;
+  font: 300 60px 'Oswald', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  max-width: 840px;
+}
+
+/* Left contact page */
+.form-horizontal {
+  /*float: left;*/
+  max-width: 400px;
+  font-family: 'Lato';
+  font-weight: 400;
+}
+
+.form-control,
+textarea {
+  /* max-width: 400px; */
+  background-color: #ffffff;
+  color: #3b3434;
+  letter-spacing: 1px;
+  width: 200px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.form-control{
+  width: 400px;
+  height: 30px;
+}
+.form-control1{
+  width: 400px;
+  max-width: 400px;
+min-width: 400px;
+max-height: 100px;
+min-height: 100px;
+}
+.col-sm-12{
+  padding-bottom: 10px;
+}
+.img-conact{
+  position: relative;
+  top: 6px;
+}
+
+.send-button {
+  margin-top: 15px;
+  height: 34px;
+  width: 400px;
+  overflow: hidden;
+  transition: all .2s ease-in-out;
+}
+
+.alt-send-button {
+  width: 400px;
+  height: 34px;
+  transition: all .2s ease-in-out;
+}
+
+.send-text {
+  display: block;
+  margin-top: 10px;
+  font: 700 12px 'Lato', sans-serif;
+  letter-spacing: 2px;
+}
+
+.alt-send-button:hover {
+  transform: translate3d(0px, -29px, 0px);
+}

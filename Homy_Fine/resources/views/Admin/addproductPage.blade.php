@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>add prduct</title>
     <link rel="stylesheet" href="../assets/css/style_project.css">
-
+    <link rel="icon" href="../assets/icon/icons8-product-50.png">
 </head>
 <body id="body_product">
 
@@ -22,17 +22,17 @@
                 @csrf
                <div  id="part_all">
                   <div class="part_input">
-                  <label for="">Product Name</label><br>
+                  <label for=""><b>Product Name</b></label><br>
                   <input type="text" name="Product_Name" id="product_add_name"  placeholder="Product Name"><br>
-                  <label id="label_product_price">Product Price</label><br>
+                  <label id="label_product_price"><b>Product Price</b></label><br>
                   <input type="text" name="Product_Price" id="product_add_price" placeholder="Product Price"><br>
-                  <label id="label_description">Description</label><br>
+                  <label id="label_description"><b>Description</b></label><br>
                   <textarea name="Description" claas="grid_input" id="product_add_description" placeholder="Description"></textarea>
                   </div>
                   <div class="part_input">
-                  <label for="">Product Image</label><br>
+                  <label for=""><b>Product Image</b></label><br>
                   <input type="file" name="imge"  id="product_add_image" placeholder="Product Image"><br>
-                  <label id="lable_section">Section</label><br>
+                  <label id="lable_section"><b>Section</b></label><br>
 
                   <select name="Section_ID" id="section_product_add_id" placeholder="Section" >
                     @foreach ($sec as $s)
@@ -42,9 +42,9 @@
 
                   </div>
                   <div class="part_input">
-                  <label for="">Color</label><br>
+                  <label for=""><b>Color</b></label><br>
                   <input type="text" name="Color" claas="input3" id="product_add_color" placeholder="Color"><br>
-                  <label id="label_size">Size</label><br>
+                  <label id="label_size"><b>Size</b></label><br>
                   <input type="text" name="Size" claas="input3" id="product_add_size" placeholder="Size"><br>
                   <button type="submit" claas="" id="submit_add_product">Add</button>
                   </div>

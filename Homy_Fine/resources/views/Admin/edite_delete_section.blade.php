@@ -52,10 +52,10 @@
                     <tr>
                         @foreach ( $section as $s )
                         <td class="column_id_section">{{$s->id}}</td>
-                        <td class="td_section">{{$s->Section_Name}}</td>
-                        <td class="td_section">{{$s->Section_image}}</td>
-                        <td class="column_Description_section">{{$s->Description}}</td>
-                       <td class="td_edite_section"><a href="{{url('updata_section',$s->id)}}"  name="button_edite_product"><img class="button_table" id="button_edite_product" src="../assets/icon/icons8-edit-62-removebg-preview.png" alt=""></a></td>
+                        <td class="td_section_edite">{{$s->Section_Name}}</td>
+                        <td class="td_section_edite">{{$s->Section_image}}</td>
+                        <td class="td_section_edite">{{$s->Description}}</td>
+                       <td class="td_section_edite"><a href="{{url('Update_confirm_Section',$s->id)}}"  name="button_edite_product"><img class="button_table" id="button_edite_product" src="../assets/icon/icons8-edit-62-removebg-preview.png" alt=""></a></td>
                        <td class="column_Description_section_edite"><a href="{{url('delet_section',$s->id)}}"  name="button_delete_product"><img class="button_delete"  src="../assets/icon/icons8-delete-48 (1).png" alt=""></a></td>
                     </tr>
                     @endforeach

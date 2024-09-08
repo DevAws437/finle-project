@@ -8,6 +8,8 @@
 </head>
 <body>
     <div class="part left">
+      <img src="../assets/icon/logo_Homy.png" id="logo_dashbord" name="" >
+
         <h1 id="logo_websit_dashboard">Homey Fine</h1>
         <ul id="menu_all">
            <li>
@@ -19,7 +21,7 @@
               <a href="{{url('viwe_Prod')}}" id="write_Product">Product</a><br>
               <ul id="menu_add_edite">
                  <li><a href="{{url('add_Prodcut_view')}}" class="style_add_edite_delete">Add</a></li><br>
-                 <li><a href="" class="style_add_edite_delete">Edite & Delete</a></li>
+                 <li><a href="{{url('update_Product_viwe')}}" class="style_add_edite_delete">Edite & Delete</a></li>
               </ul>
            </li><br>
            <li>
@@ -27,16 +29,14 @@
               <a href="{{url('viwe_Sections')}}" id="write_Section">Section</a><br>
               <ul id="menu_add_edite" >
                  <li><a href="{{url('add_Sections_viwe')}}" class="style_add_edite_delete">Add</a></li><br>
-                 <li><a href="" class="style_add_edite_delete">Edite & Delete</a></li>
-                 <li><a href="" class="style_add_edite_delete">Add Image Scrole</a></li>
+                 <li><a href="{{url('update_Sections_viwe')}}" class="style_add_edite_delete">Edite & Delete</a></li>
               </ul>
            </li><br>
            <li>
               <img src="../assets/icon/icons8-user-50.png" id="image_User" name="image_User" >
-              <a href="" id="write_User">User</a><br>
+              <a href="{{url('viwe_page_user')}}" id="write_User">User</a><br>
               <ul id="menu_add_edite">
-                 <li><a href="" class="style_add_edite_delete">Add</a></li><br>
-                 <li><a href="" class="style_add_edite_delete">Edite & Delete</a></li>
+                 <li><a href="{{url('edit_user_page')}}" class="style_add_edite_delete">Edite & Delete</a></li>
               </ul>
            </li><br>
            <li>
@@ -45,11 +45,13 @@
            </li><br>
            <li>
               <img src="../assets/icon/icons8-invoice-50.png" id="image_Invoice" name="image_Invoice" >
-              <a href="" id="write_Invoice">Invoice</a><br>
+              <a href="{{url('Viwe_Invoice')}}" id="write_Invoice">Invoice</a><br>
            </li>
         </ul>
         <img src="../assets/icon/icons8-log-out-64.png" id="image_logout" name="image_Exit" >
-        <a href="" id="write_logout">Log out</a><br>
+   
+
+        <a href="{{ url('/') }}" id="write_logout">Log out</a><br>
     </div>
 </body>
 </html>

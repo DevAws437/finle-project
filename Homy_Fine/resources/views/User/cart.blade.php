@@ -142,7 +142,7 @@
                         <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block btn-lg">Buy now</button>
       
                         <h5 class="fw-bold mb-5" style="position: absolute; bottom: 0;">
-                          <a href="#!"><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
+                          <a href="{{url('/')}}"><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
                         </h5>
       
                       </form>

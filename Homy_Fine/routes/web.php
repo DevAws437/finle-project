@@ -16,9 +16,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware([
     'auth:sanctum',
@@ -59,14 +59,14 @@ Route::get('/Update_confirm_product/{id}',[AdminController::class,"Update_confir
 //======(Section)========
 Route::get('/viwe_Sections',[AdminController::class,'viwe_Sections']);
 
-Route::get('/Home_section',[AdminController::class,'Home_section']);
+Route::get('/',[AdminController::class,'Home_section'])->name('home');
 
 Route::get('/add_Sections_viwe',[AdminController::class,'add_Sections_viwe']);
 
 Route::post('/add_Section',[AdminController::class,'add_Section']);
 
 //delet_Section
-Route::get('/delet_section/{id}',[AdminController::class,"deletcatagory"]);
+Route::get('/delet_section/{id}',[AdminController::class,"delet_section"]);
 
 //Updata_Section
 Route::get('/update_Sections_viwe',[AdminController::class,"update_Sections_viwe"]);
@@ -75,20 +75,28 @@ Route::get('/updata_section/{id}',[AdminController::class,"updata_section"]);
 
 Route::get('/Update_confirm_Section/{id}',[AdminController::class,"Update_confirm_Section"]);
 
+ //user
+
+ Route::get('/viwe_page_user',[AdminController::class,"viwe_page_user"]);
+
+ Route::get('/edit_user_page',[AdminController::class,"edit_user_page"]);
+
+ Route::get('/delet_user/{id}',[AdminController::class,"delet_user"]);
 
 //======(signup&login)========
 
- Route::get('/signup',[AdminController::class,'signup']);
+ Route::get('/signupe',[AdminController::class,'signupe']);
 
  Route::get('/login',[AdminController::class,'login']);
 
+
 //======(Call signup&login page)========
-Route::get('/signup', function () {
-    return view('Admin.signup');
-})->name('signup');
+Route::get('/signupe', function () {
+    return view('User.signupe');
+})->name('signupe');
 
 Route::get('/login', function () {
-    return view('Admin.login');
+    return view('User.login');
 })->name('login');
 
 //======(Call function signupuser)========
@@ -98,7 +106,7 @@ Route::get('/signupuser',[AdminController::class,'signupuser']);
 
 Route::get('/viwe_shopping_cart',[AdminController::class,"viwe_shopping_cart"]);
 
-Route::get('/product_to_user',[HomeController::class,'product_to_user']);
+Route::get('/product_to_user/{Section_ID}',[HomeController::class,'product_to_user']);
 
 Route::post('/View_Shopping_cart/{id}',[HomeController::class,"View_Shopping_cart"]);
 
@@ -108,6 +116,10 @@ Route::get('/Show_sh_cart',[HomeController::class,"Show_sh_cart"]);
 //======(Invoice)========
 Route::get('/Viwe_Invoice',[AdminController::class,"Viwe_Invoice"]);
 
+Route::post('/viwe_fram/{id}',[HomeController::class,"viwe_fram"]);
+
+
+
 
 
 
@@ -115,6 +127,19 @@ Route::get('/Viwe_Invoice',[AdminController::class,"Viwe_Invoice"]);
 Route::get('/cart', function () {
     return view('User.cart');
 })->name('cart');
+Route::get('/home', function () {
+    return view('User.home');
+})->name('home');
+
+Route::get('/abuot', function () {
+    return view('User.abuot');
+})->name('abuot');
+
+// Route::get('/fram', function () {
+//     return view('User.fram');
+// })->name('fram');
+
+
 
 
 

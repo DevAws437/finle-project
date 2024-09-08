@@ -5,33 +5,40 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\shopping_carts;
 use illuminate\Support\Facades\Auth;
-
 use illuminate\Http\Request;
-
 use App\Models\User;
-
+use App\Models\Section;
 
 
 class HomeController extends Controller
 {
+
+
     public function redirect()
     {
-       $UserType = Auth::user()->User_Type;
+       $UserType = Auth::user()->usertype;
 
-        if ($UserType==='1'){
-        return view('Admin.Home');
+        if ($UserType=='1'){
+            $user=User::all();
+        return view('Admin.DashboardAdmin' ,compact('user'));
     }
     else{
        $product=Product::all();
        $user=User::all();
-       return view('Admin.Home',compact('product','user'));
+       return view('User.home',compact('product','user'));
     }
     }
-    public function product_to_user()
+    public function product_to_user($Sid )
     {
-       $product=Product::all();
+        $section=Section::find($Sid);
+       $product=Product::where('Section_ID',$Sid)->get();
        $user=User::all();
-       return view('User.handbag',compact('product','user'));
+       return view('User.handbag',compact('product','user','section'));
+    }
+
+    public function view()
+    {
+        return view('User.home');
     }
 
     public function View_Shopping_cart($id ,Request $req)
@@ -76,7 +83,17 @@ class HomeController extends Controller
 
             }
 
+
         }
+
+        public function viwe_fram($id ,Request $req)
+        {
+            $viwe_fram=Product::where('id',$id)->get();
+
+            return view('User.fram' ,compact('viwe_fram'));
+        }
+
+
 
 
     }

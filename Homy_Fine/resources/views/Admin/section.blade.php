@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>section</title>
     <link rel="stylesheet" href="../assets/css/style_project.css">
+    <link rel="icon" href="../assets/icon/icons8-menu-50.png"/>
 </head>
 <body id="body_product">
 
@@ -19,7 +20,7 @@
 
             <h3 id="title_table_section">Section Table</h3>
 
-               <table  id="table_scr" name="table" class="product_tuble">
+               <table name="table" class="section_tuble">
                   <tr>
                      <th class="column_id_section">Id</th>
                      <th class="th_section">Section Name</th>

@@ -1,11 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Homey Fine</title>
     <link rel="stylesheet" href="../assets/css/style_project.css">
          <link rel="stylesheet" href="../assets/Aos/aos.css">
+         <link rel="icon" href="../assets/icon/logo_Homy.png"/>
 </head>
 <body >
     <!-- section one -->
@@ -48,10 +50,10 @@
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-lg-6">
                         <div class="header-content-right" data-aos=flip-left >
-                            <h4 class="sub-title">Hello, I’m</h4>
-                            <h1 class="title"  >Mark Parker</h1>
-                            <p  style="color: black;">A Freelance UI Designer & Web Developer</p>
-                            <a class="main-btn" href="#work" data-aos=flip-left>View my Work</a>
+                            <h4 class="sub-title">Welcome To</h4>
+                            <h1 class="title" id="title_home" >Homey Fine</h1>
+                            <p  style="color: black;">Our Website specializes<br> in selling everything for Women</p>
+                            
                         </div> <!-- header content right -->
                     </div>
                     <div class="col-lg-6 offset-xl-1" >
@@ -108,7 +110,7 @@
     </section>
 <!-- section card ......................................... -->
 
-    <svg width="100%" >
+    <svg width="100%" id="section" >
         <text x="50%" y="100%">sections</text>
       </svg>
 
@@ -118,8 +120,9 @@
 
 
 @foreach ( $section as $s)
+<input type="hidden" name="section_id" value="{{$s->id}}">
 
-       <a href="">
+       <a href="{{url('product_to_user',$s->id )}}" >
         <div class="card blue">
             <div class="product">
                 <span class="number" name='section_id' >0{{$s->id}}</span>
@@ -137,7 +140,7 @@
         </div>
        </a>
 
-       @endforeach
+@endforeach
 
     </section>
 
@@ -192,7 +195,7 @@
                   <hr>
                   <ul class="social-media-list">
                     <li><a href="#" target="_blank" class="contact-icon">
-                      <i class="fa fa-github" aria-hidden=""><img src="assets/images/icons8-facebook-64.png" alt="" width="45px" height="45px" class="img-conact"></i></a>
+                     <img src="assets/images/icons8-facebook-64.png" alt="" width="45px" height="45px" class="img-conact"></a>
                     </li>
                     <li><a href="#" target="_blank" class="contact-icon">
                       <i class="fa fa-codepen" aria-hidden="true"><img src="assets/images/icons8-instagram-48 (1).png" alt="" width="45px" height="45px" class="img-conact"></i></a>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../assets/css/style_project.css">
+    <link rel="icon" href="../assets/icon/icons8-dashboard-50.png"/>
 </head>
 <body id="body_dashboard">
 
@@ -21,22 +22,22 @@
                 <header id="The_first_statistic">
                   <img src="../assets/icon/icons8-user-50.png" class="icon_dashboard" alt="">
                   <h2 class="title_dive_dashboard">Number of users</h2>
-                  <p class="statistise_dashboard"><b>dasdasfadfadasda</b></p>
+                  <p class="statistise_dashboard"><b>300</b></p>
                 </header>
                 <header id="The_second_statistic">
                   <img src="../assets/icon/icons8-sales-64.png" class="icon_dashboard" id="icon_product_div">
                   <h2 class="title_dive_dashboard">Most popular product</h2>
-                  <p class="statistise_dashboard"><b>dasdasfadfadasda</b></p>
+                  <p class="statistise_dashboard"><b>139</b></p>
                 </header>
                 <header id="The_third_statistic">
                   <img src="../assets/icon/icons8-money-50 (1).png" class="icon_dashboard" alt="">
                   <h2 class="title_dive_dashboard">Sales</h2>
-                  <p class="statistise_dashboard"><b>dasdasfadfadasda</b></p>
+                  <p class="statistise_dashboard"><b>529</b></p>
                 </header>
                 <header id="The_fourth_statistic">
                   <img src="../assets/icon/icons8-product-50.png" class="icon_dashboard" alt="">
                   <h2 class="title_dive_dashboard">Number of products</h2>
-                  <p class="statistise_dashboard"><b>dasdasfadfadasda</b></p>
+                  <p class="statistise_dashboard"><b>70</b></p>
                 </header>
             </div>
             <h3 id="title_table" id="tuble">user table</h3>

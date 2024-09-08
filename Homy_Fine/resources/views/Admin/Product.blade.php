@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>product</title>
     <link rel="stylesheet" href="../assets/css/style_project.css">
+    <link rel="icon" href="../assets/icon/icons8-product-50.png">
 </head>
 <body id="body_product">
 

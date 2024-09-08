@@ -1,4 +1,23 @@
 //menu
+document.addEventListener('DOMContentLoaded', (event) => {
+    const modal = document.getElementById("myModal");
+    const btn = document.getElementById("openModalBtn");
+    const span = document.getElementsByClassName("closeBtn")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
 
 
 
@@ -573,25 +592,6 @@ var VanillaTilt = (function () {
 
     //cart
 
-    document.addEventListener('DOMContentLoaded', (event) => {
-      const modal = document.getElementById("myModal");
-      const btn = document.getElementById("openModalBtn");
-      const span = document.getElementsByClassName("closeBtn")[0];
-
-      btn.onclick = function() {
-          modal.style.display = "block";
-      }
-
-      span.onclick = function() {
-          modal.style.display = "none";
-      }
-
-      window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
-          }
-      }
-  });
 
 
   document.querySelector('#contact-form').addEventListener('submit', (e) => {
@@ -604,7 +604,7 @@ var VanillaTilt = (function () {
 
 //   edit product and section
 // mutasem
-const button = document.querySelector('#button_edite_product');
+const button = document.querySelector('.button_edite_product');
 const overlay = document.querySelector('.overlay');
 
 button.addEventListener('click', () => {
@@ -621,6 +621,7 @@ button.addEventListener('click', () => {
 // });
 
 // ===============Serch================== //
+
 
 
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>add section</title>
     <link rel="stylesheet" href="../assets/css/style_project.css">
+    <link rel="icon" href="../assets/icon/icons8-menu-50.png"/>
 </head>
 <body id="body_product">
 
@@ -22,16 +23,16 @@
                 @csrf
                <div  id="part_all">
                   <div class="part_input">
-                  <label for="">Section Name</label><br>
+                  <label for=""><b>Section Name</b></label><br>
                   <input type="text" name="Section_Name" id="product_add_name"  placeholder="Section Name"><br>
 
                   </div>
                   <div class="part_input">
-                  <label for="">Section Image</label><br>
+                  <label for=""><b>Section Image</b></label><br>
                   <input type="file" name="Section_image"  id="product_add_image" placeholder="Section Image"><br>
                   </div>
                   <div class="part_input">
-                     <label id="Section_label_description">Description</label><br>
+                     <label id="Section_label_description"><b>Description</b></label><br>
                      <textarea name="Description" claas="grid_input" id="Section_add_description" placeholder="Description"></textarea>
 
                   <button type="submit" claas="" id="submit_add_Secion">Add</button>
